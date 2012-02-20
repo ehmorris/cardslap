@@ -1,0 +1,11 @@
+<p><%= @deck.name %></p>
+
+<p><%= link_to 'Create card', [:new, @deck, :card] %></p>
+
+<ul>
+  <% @cards.each do |card| %>
+    <li><%= link_to card.front, [@deck, card] %></li>
+  <% end %>
+</ul>
+
+<p><%= link_to "Back", decks_path %></p>

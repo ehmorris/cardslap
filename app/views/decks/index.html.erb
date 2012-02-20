@@ -1,0 +1,7 @@
+<p><%= link_to 'Create deck', new_deck_path %></p>
+
+<ul>
+  <% @decks.each do |deck| %>
+    <li><%= link_to deck.name, deck %></li>
+  <% end %>
+</ul>
