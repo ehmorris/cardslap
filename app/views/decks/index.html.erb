@@ -1,6 +1,11 @@
-<p><%= link_to 'Create deck', new_deck_path %></p>
+<header>
+  <h1>Cardslap</h1>
+  <nav>
+    <%= link_to 'Create deck', new_deck_path, :class => "create-link" %>
+  </nav>
+</header>
 
-<ul>
+<ul class="decks">
   <% @decks.each do |deck| %>
     <li><%= link_to deck.name, deck %></li>
   <% end %>
