@@ -10,8 +10,4 @@ class CardsController < ApplicationController
     @card.save
     redirect_to @deck, notice: "Card created"
   end
-
-  def show
-    @card = Card.find(params[:id])
-  end
 end
