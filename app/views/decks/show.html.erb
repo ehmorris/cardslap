@@ -1,11 +1,3 @@
-<header>
-  <h1>Cardslap <span><%= @deck.name %></span></h1>
-  <nav>
-    <%= link_to 'Create card', [:new, @deck, :card], :class => "create-link" %>
-    <%= link_to "Back", decks_path, :class => "back" %>
-  </nav>
-</header>
-
 <ul class="cards">
   <% @cards.each do |card| %>
     <li>
@@ -18,4 +10,5 @@
       <% end %>
     </li>
   <% end %>
+  <li><%= link_to 'Create card', [:new, @deck, :card], :class => "create-link" %></li>
 </ul>

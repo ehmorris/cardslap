@@ -14,10 +14,15 @@
   </script>
 </head>
 <body>
-
-<div class="wrapper">
-  <%= yield %>
-</div>
-
+  <div class="wrapper">
+    <header>
+      <% if @deck %>
+        <h1><a href="<%= decks_path %>">Cardslap</a> <span><%= @deck.name %></span></h1>
+      <% else %>
+        <h1>Cardslap</h1>
+      <% end %>
+    </header>
+    <%= yield %>
+  </div>
 </body>
 </html>
