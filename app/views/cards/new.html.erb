@@ -1,13 +1,5 @@
 <%= form_for [@deck, @card] do |form| %>
-  <div>
-    <%= form.label :front %>
-    <%= form.text_area :front %>
-  </div>
-  <div>
-    <%= form.label :back %>
-    <%= form.text_area :back %>
-  </div>
-  <div>
-    <%= form.submit %>
-  </div>
+  <%= form.text_area :front, :placeholder => 'Front' %>
+  <%= form.text_area :back, :placeholder => 'Back - to use an image, paste in the url' %>
+  <%= form.submit %>
 <% end %>

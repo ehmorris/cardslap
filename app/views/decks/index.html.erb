@@ -2,5 +2,10 @@
   <% @decks.each do |deck| %>
     <li><%= link_to deck.name, deck %></li>
   <% end %>
-  <li><%= link_to 'Create deck', new_deck_path, :class => "create-link" %></li>
+  <li class="create-deck">
+    <%= form_for @deck do |form| %>
+      <%= form.text_area :name, :placeholder => 'Deck name' %>
+      <%= form.submit %>
+    <% end %>
+  </li>
 </ul>
