@@ -1,13 +1,7 @@
 <ul class="cards">
   <% @cards.each do |card| %>
     <li>
-      <span class="front"><%= card.front %></span>
-      <% uri = URI.parse(card.back) %>
-      <% if %w(http https).include?(uri.scheme) %>
-        <span class="back image"><img src="<%= card.back %>" /></span>
-      <% else %>
-        <span class="back"><%= card.back %></span>
-      <% end %>
+      <%= render card %>
     </li>
   <% end %>
   <li><%= link_to 'Create card', [:new, @deck, :card], :class => "create-link" %></li>
