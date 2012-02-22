@@ -3,9 +3,6 @@
     <li><%= link_to deck.name, deck %></li>
   <% end %>
   <li class="create-deck">
-    <%= form_for @deck do |form| %>
-      <%= form.text_area :name, :placeholder => 'Deck name' %>
-      <%= form.submit %>
-    <% end %>
+    <%= render :partial => "form", :locals => { :deck => @deck } %>
   </li>
 </ul>
