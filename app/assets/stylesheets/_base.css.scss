@@ -99,6 +99,24 @@ $card-size: 200px;
     .front {
       @include transform(rotate3d(45,45,0,0deg));
       z-index: 1;
+
+      a.delete {
+        background: rgba(0,0,0,.3);
+        border: 1px solid rgba(255,255,255,.3);
+        bottom: 0;
+        @include box-sizing(border-box);
+        color: #fff;
+        left: 0;
+        opacity: .5;
+        padding: 1em;
+        position: absolute;
+        right: 0;
+
+        &:hover {
+          background: rgba(0,0,0,.6);
+          opacity: 1;
+        }
+      }
     }
 
     .back {
