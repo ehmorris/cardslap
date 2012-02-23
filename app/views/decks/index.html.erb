@@ -1,8 +1,11 @@
 <ul class="decks">
   <% @decks.each do |deck| %>
-    <li><%= link_to deck.name, deck %></li>
+    <li>
+      <%= link_to deck.name, deck %>
+      <%= link_to 'delete', deck, :method => :delete, :class => 'delete' %>
+    </li>
   <% end %>
   <li class="create-deck">
-    <%= render :partial => "form", :locals => { :deck => @deck } %>
+    <%= render :partial => 'form', :locals => { :deck => @deck } %>
   </li>
 </ul>

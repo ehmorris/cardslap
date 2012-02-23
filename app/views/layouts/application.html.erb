@@ -22,6 +22,11 @@
         <h1>Cardslap</h1>
       <% end %>
     </header>
+    <% if flash[:notice] %>
+      <div class="notice">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
     <%= yield %>
   </div>
 </body>

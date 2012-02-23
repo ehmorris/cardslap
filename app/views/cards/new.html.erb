@@ -1,5 +1,5 @@
 <%= form_for [@deck, @card] do |form| %>
-  <%= form.text_area :front, :placeholder => 'Front' %>
+  <%= form.text_area :front, :placeholder => 'Front - to use an image, paste in the url' %>
   <%= form.text_area :back, :placeholder => 'Back - to use an image, paste in the url' %>
   <%= form.submit %>
 <% end %>

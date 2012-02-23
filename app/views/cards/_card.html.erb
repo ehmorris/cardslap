@@ -1,8 +1,17 @@
-<span class="front"><%= card.front %></span>
-<% uri = URI.parse(card.back) %>
-<% if %w(http https).include?(uri.scheme) %>
+<% if is_string_image?(card.front) %>
+  <span class="front image">
+    <img src="<%= card.front %>" />
+    <%= link_to 'delete', card, :method => :delete, :class => 'delete' %>
+  </span>
+<% else %>
+  <span class="front">
+    <%= card.front %>
+    <%= link_to 'delete', card, :method => :delete, :class => 'delete' %>
+  </span>
+<% end %>
+
+<% if is_string_image?(card.back) %>
   <span class="back image"><img src="<%= card.back %>" /></span>
 <% else %>
   <span class="back"><%= card.back %></span>
 <% end %>
-
