@@ -23,12 +23,12 @@ class CardsController < ApplicationController
 
   def edit
     @deck = Deck.find(params[:deck_id])
-    @card = @deck.cards.build(params[:card])
+    @card = @deck.cards.find(params[:id])
   end
 
   def update
     @deck = Deck.find(params[:deck_id])
-    @card = @deck.cards.build(params[:card])
+    @card = @deck.cards.find(params[:id])
 
     if @card.update_attributes(params[:card])
       redirect_to @deck
