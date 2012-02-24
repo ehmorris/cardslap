@@ -1,0 +1,5 @@
+<%= form_for [@deck, @card] do |form| %>
+  <%= form.text_area :front, :placeholder => @card.front %>
+  <%= form.text_area :back, :placeholder => @card.back %>
+  <%= form.submit %>
+<% end %>
