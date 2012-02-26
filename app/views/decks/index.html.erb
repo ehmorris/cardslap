@@ -2,7 +2,10 @@
   <% @decks.each do |deck| %>
     <li>
       <%= link_to deck.name, deck %>
-      <%= link_to 'delete', deck, :method => :delete, :class => 'delete' %>
+      <div class="actions">
+        <%= link_to 'edit', edit_deck_path(deck), :class => 'edit' %>
+        <%= link_to 'delete', deck, :method => :delete, :class => 'delete' %>
+      </div>
     </li>
   <% end %>
   <li class="create-deck">

@@ -1,0 +1,11 @@
+textarea {
+  display: block;
+  font-family: $helvetica;
+  resize: none;
+}
+
+input[type="submit"] {
+  @include button($dark);
+  font-family: $helvetica;
+  margin: 0;
+}

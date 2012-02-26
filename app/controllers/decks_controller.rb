@@ -20,4 +20,18 @@ class DecksController < ApplicationController
     @deck.destroy
     redirect_to decks_path
   end
+
+  def edit
+    @deck = Deck.find(params[:id])
+  end
+
+  def update
+    @deck = Deck.find(params[:id])
+
+    if @deck.update_attributes(params[:deck])
+      redirect_to decks_path
+    else
+      render :edit
+    end
+  end
 end

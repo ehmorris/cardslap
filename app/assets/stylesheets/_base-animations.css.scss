@@ -1,0 +1,15 @@
+.animation-card-entry {
+  @include animation(card-entry 0.3s $ease-out-sine);
+}
+
+@mixin card-entry {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 0;
+  }
+}
+@-webkit-keyframes card-entry { @include card-entry; }
+   @-moz-keyframes card-entry { @include card-entry; }
+        @keyframes card-entry { @include card-entry; }

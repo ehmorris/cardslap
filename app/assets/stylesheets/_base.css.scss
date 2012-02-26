@@ -1,19 +1,6 @@
-
-$card-size: 200px;
-
-
 body {
   font-family: $helvetica;
   font-size: 100%;
-}
-
-textarea {
-  resize: none;
-  display: block;
-}
-
-input[type="submit"] {
-  @include button(#333);
 }
 
 ul {
@@ -23,14 +10,14 @@ ul {
 }
 
 .wrapper {
-  padding: 0 4em 0 4em;
   margin: auto;
+  padding: 0 4em 0 4em;
 }
 
 header {
   display: block;
-  overflow: auto;
   margin: 2em 0;
+  overflow: auto;
 
   h1 {
     a, a:link, a:visited {
@@ -61,7 +48,7 @@ header {
     width: $card-size;
 
     a.create-link {
-      background: #ff0000;
+      background: $red;
       bottom: 0;
       color: #fff;
       display: block;
@@ -71,15 +58,39 @@ header {
       right: 0;
       top: 0;
     }
+
+    .actions {
+      background: rgba(0,0,0,.15);
+      border: 1px solid rgba(255,255,255,.2);
+      bottom: 0;
+      @include box-sizing(border-box);
+      left: 0;
+      padding: 1em;
+      position: absolute;
+      right: 0;
+
+      a.edit, a.delete {
+        color: #fff;
+        margin-right: .5em;
+        opacity: .5;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
   }
 }
 
 .cards {
+  @extend .animation-card-entry;
+  position: relative;
+
   li {
     .front, .back {
-      background: #666;
+      background: $gray;
       bottom: 0;
-      color: #eee;
+      color: #fff;
       left: 0;
       padding: 1em;
       position: absolute;
@@ -101,31 +112,10 @@ header {
     .front {
       @include transform(rotate3d(45,45,0,0deg));
       z-index: 1;
-
-      .actions {
-        background: rgba(0,0,0,.15);
-        border: 1px solid rgba(255,255,255,.2);
-        bottom: 0;
-        @include box-sizing(border-box);
-        left: 0;
-        padding: 1em;
-        position: absolute;
-        right: 0;
-
-        a.edit, a.delete {
-          color: #fff;
-          opacity: .5;
-          margin-right: .5em;
-
-          &:hover {
-            opacity: 1;
-          }
-        }
-      }
     }
 
     .back {
-      background: #ddd;
+      background: lighten($gray, 40%);
       color: #000;
       @include transform(rotate3d(45,45,0,-180deg));
       z-index: 0;
@@ -147,7 +137,7 @@ header {
     overflow: visible;
 
     &.create-deck {
-      background: #ff0000;
+      background: $red;
       @include box-sizing(border-box);
       color: #fff;
       padding: 1em;
@@ -157,14 +147,10 @@ header {
         height: $card-size * .66;
         width: 100%;
       }
-
-      input[type="submit"] {
-        margin: 0;
-      }
     }
 
-    a {
-      background: #666;
+    > a {
+      background: $gray;
       border: 1px solid #fff;
       bottom: 0;
       @include box-sizing(border-box);
@@ -176,21 +162,9 @@ header {
       top: 0;
     }
 
-    a.delete {
-      background: rgba(0,0,0,.1);
-      border: 1px solid rgba(255,255,255,.3);
-      top: inherit;
-      opacity: .5;
-      @include transition;
-
-      &:hover {
-        background: rgba(0,0,0,.2);
-        opacity: 1;
-      }
-    }
-
+    // stack effect
     &:not(:last-child)::after {
-      background: #999;
+      background: lighten($gray, 20%);
       bottom: 0;
       content: "";
       display: block;
@@ -205,8 +179,8 @@ header {
   }
 }
 
-.new_card textarea, .edit_card textarea {
-  background: #666;
+.new_card textarea, .edit_card textarea, .edit_deck textarea {
+  background: $gray;
   border: none;
   @include box-sizing(border-box);
   color: #fff;
@@ -217,7 +191,7 @@ header {
   width: $card-size;
 
   &:focus {
+    background: darken($gray, 10%);
     outline: none;
-    background: #777;
   }
 }
