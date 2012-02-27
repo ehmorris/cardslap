@@ -15,12 +15,29 @@
 </head>
 <body>
   <div class="wrapper">
-    <header>
-      <% if @deck.id %>
-        <h1><a href="<%= decks_path %>">Cardslap</a> <span><%= link_to @deck.name, deck_path(@deck) %></span></h1>
-      <% else %>
-        <h1>Cardslap</h1>
+    <% if signed_in? %>
+      <header>
+        <% if defined? @card %>
+          <h1><a href="<%= decks_path %>">Cardslap</a> <span><%= link_to @deck.name, deck_path(@deck) %></span></h1>
+        <% elsif defined? @deck %>
+          <h1><a href="<%= decks_path %>">Cardslap</a> <span><%= @deck.name %></span></h1>
+        <% else %>
+          <h1>Cardslap</h1>
+        <% end %>
+      </header>
+      <% if flash[:notice] %>
+        <div class="notice">
+          <%= flash[:notice] %>
+        </div>
       <% end %>
+      <%= yield %>
+      <footer>
+        <p><%= current_user.email %> <%= link_to "sign out", sign_out_path, :method => :delete %></p>
+      </footer>
+    </div>
+  <% else %>
+    <header>
+      <h1>Cardslap</h1>
     </header>
     <% if flash[:notice] %>
       <div class="notice">
@@ -28,6 +45,6 @@
       </div>
     <% end %>
     <%= yield %>
-  </div>
+  <% end %>
 </body>
 </html>

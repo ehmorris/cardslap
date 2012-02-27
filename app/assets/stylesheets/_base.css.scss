@@ -30,9 +30,12 @@ header {
   }
 }
 
-.notice {
-  @include border-radius(none);
+div.notice {
+  border: none;
+  @include border-radius(0);
+  display: inline-block;
   margin-bottom: 2em;
+  padding: 0;
 }
 
 .cards, .decks {
@@ -106,6 +109,14 @@ header {
         img {
           width: $card-size;
         }
+      }
+
+      .actions {
+        display: none;
+      }
+
+      &:hover .actions {
+        display: block;
       }
     }
 
@@ -194,4 +205,10 @@ header {
     background: darken($gray, 10%);
     outline: none;
   }
+}
+
+footer {
+  clear: both;
+  display: block;
+  padding: 2em 0;
 }

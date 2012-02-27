@@ -1,0 +1,9 @@
+<%= form_for :session, :url => session_path do |form| %>
+  <%= form.text_field :email, :type => 'email', :placeholder => 'email' %>
+  <%= form.password_field :password, :placeholder => 'password' %>
+  <%= form.submit "Sign in" %>
+<% end %>
+
+<footer>
+  <p>Don't have an account? <%= link_to 'Sign up', sign_up_path %></p>
+</footer>

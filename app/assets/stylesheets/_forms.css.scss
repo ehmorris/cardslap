@@ -9,3 +9,21 @@ input[type="submit"] {
   font-family: $helvetica;
   margin: 0;
 }
+
+.field_with_errors {
+  display: inline;
+
+  input {
+    color: $red;
+  }
+
+  ::-webkit-input-placeholder {
+    color: $red;
+    opacity: .5;
+  }
+
+  input:-moz-placeholder {
+    color: $red;
+    opacity: .5;
+  }
+}
