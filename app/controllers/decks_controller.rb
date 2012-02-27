@@ -11,7 +11,7 @@ class DecksController < ApplicationController
     @user = User.find(current_user.id)
     @deck = @user.decks.build(params[:deck])
     @deck.save
-    redirect_to new_user_deck_card_path(@deck)
+    redirect_to new_deck_card_path(@deck)
   end
 
   def show
@@ -24,7 +24,7 @@ class DecksController < ApplicationController
     @user = User.find(current_user.id)
     @deck = @user.decks.find(params[:id])
     @deck.destroy
-    redirect_to user_decks_path
+    redirect_to decks_path
   end
 
   def edit
@@ -37,7 +37,7 @@ class DecksController < ApplicationController
     @deck = @user.decks.find(params[:id])
 
     if @deck.update_attributes(params[:deck])
-      redirect_to user_decks_path
+      redirect_to decks_path
     else
       render :edit
     end

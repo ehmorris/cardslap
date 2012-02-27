@@ -3,7 +3,7 @@
     <li>
       <%= link_to deck.name, deck %>
       <div class="actions">
-        <%= link_to 'edit', edit_user_deck_path(deck), :class => 'edit' %>
+        <%= link_to 'edit', edit_deck_path(deck), :class => 'edit' %>
         <%= link_to 'delete', deck, :method => :delete, :class => 'delete' %>
       </div>
     </li>
