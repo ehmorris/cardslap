@@ -1,6 +1,6 @@
 class Deck < ActiveRecord::Base
   validates :name, :presence => true, :uniqueness => true
-  has_many :cards
+  has_many :cards, :dependent => :destroy
 
   extend FriendlyId
   friendly_id :name, use: :slugged
