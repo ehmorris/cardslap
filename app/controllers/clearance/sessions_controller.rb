@@ -5,7 +5,11 @@ class Clearance::SessionsController < ApplicationController
   protect_from_forgery :except => :create
 
   def new
-    render :template => 'sessions/new'
+    if !signed_in?
+      render :template => 'sessions/new'
+    else
+      redirect_to user_decks_path
+    end
   end
 
   def create

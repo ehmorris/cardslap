@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120227000240) do
+ActiveRecord::Schema.define(:version => 20120227020151) do
 
   create_table "cards", :force => true do |t|
     t.text     "front"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20120227000240) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.integer  "user_id"
   end
 
   create_table "friendly_id_slugs", :force => true do |t|
