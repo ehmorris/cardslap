@@ -1,0 +1,8 @@
+<p>Your password has been reset. Choose a new password below.</p>
+
+<%= form_for(:user,
+             :url  => user_password_path(@user, :token => @user.confirmation_token),
+             :html => { :method => :put }) do |form| %>
+    <%= form.password_field :password, :placeholder => 'choose password' %>
+    <%= form.submit 'Save this password' %>
+<% end %>
