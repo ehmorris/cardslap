@@ -6,4 +6,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require h5utils.js
+//= require dragdrop.js
+//= require_self
+

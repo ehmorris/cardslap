@@ -1,8 +1,12 @@
 <ul class="cards">
   <% @cards.each do |card| %>
-    <li>
+    <li draggable="true">
       <%= render card %>
     </li>
   <% end %>
   <li><%= link_to 'Create card', [:new, @deck, :card], :class => "create-link" %></li>
 </ul>
+
+<div id="bin">
+  <h2>Memorized Pile</h2>
+</div>

@@ -39,6 +39,7 @@ div.notice {
 }
 
 .cards, .decks {
+  overflow: auto;
   li {
     display: block;
     float: left;
@@ -187,6 +188,25 @@ div.notice {
       width: $card-size;
       z-index: -1;
     }
+  }
+}
+
+#bin {
+  @include box-sizing(border-box);
+  border: .25em dashed lighten($gray, 40%);
+  clear: both;
+  display: block;
+  margin-top: 1em;
+  min-height: 100px;
+  padding: 1em;
+
+  &.over {
+    border: .25em solid yellow;
+  }
+
+  h2 {
+    color: lighten($gray, 20%);
+    font-weight: normal;
   }
 }
 

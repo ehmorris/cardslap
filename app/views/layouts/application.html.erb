@@ -32,7 +32,7 @@
       <% end %>
       <%= yield %>
       <footer>
-        <p><%= current_user.email %> <%= link_to 'sign out', sign_out_path, :method => :delete %> <%= link_to 'change password', edit_user_password_path, :method => :delete %></p>
+        <p><%= current_user.email %> <%= link_to 'sign out', sign_out_path, :method => :delete %></p>
       </footer>
     </div>
   <% else %>
