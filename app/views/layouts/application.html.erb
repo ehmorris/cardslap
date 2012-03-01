@@ -6,11 +6,19 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <script type="text/javascript">
-    $(function() {
-      $('.cards li').click(function() {
+      $('.cards li').live('click', function() {
         $(this).toggleClass('flip');
       });
-    });
+
+      $('#bin li').live('click', function() {
+        $(this).toggleClass('flip');
+      });
+
+      $('.flip-all').live('click', function() {
+        $('.cards li').each(function() {
+          $(this).toggleClass('flip');
+        });
+      });
   </script>
 </head>
 <body>

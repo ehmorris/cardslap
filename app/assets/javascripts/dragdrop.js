@@ -1,54 +1,48 @@
-var msie = /*@cc_on!@*/0;
-
-var links = document.querySelectorAll('li'), el = null;
-for (var i = 0; i < links.length; i++) {
-  el = links[i];
-
-  addEvent(el, 'dragstart', function (e) {
-    e.dataTransfer.effectAllowed = 'copy'; // only dropEffect='copy' will be dropable
-    e.dataTransfer.setData('Text', this.id); // required otherwise doesn't work
-  });
+function cancel(e) {
+  if (e.preventDefault) {
+    e.preventDefault();
+  }
+  return false;
 }
 
-var bin = document.querySelector('#bin');
+$(function() {
 
-addEvent(bin, 'dragover', function (e) {
-  if (e.preventDefault) e.preventDefault(); // allows us to drop
-  this.className = 'over';
-  e.dataTransfer.dropEffect = 'copy';
-  return false;
+  var dragItems = document.querySelectorAll('[draggable=true]');
+
+  var delimiter = '<>';
+
+  for (var i = 0; i < dragItems.length; i++) {
+    addEvent(dragItems[i], 'dragstart', function (event) {
+      // store the card's data for pickup on drop
+      var id = $(this).attr('id');
+      var front = $(this).children('.front').children('.text').text();
+      var back = $(this).children('.back').text();
+      event.dataTransfer.setData('Text', id + delimiter + front + delimiter + back);
+    });
+  }
+
+  var drop = document.querySelector('#bin');
+
+  // Tells the browser that we *can* drop on this target
+  addEvent(drop, 'dragover', cancel);
+  addEvent(drop, 'dragenter', cancel);
+
+  addEvent(drop, 'drop', function (e) {
+    if (e.preventDefault) e.preventDefault(); // stops the browser from redirecting off to the text.
+
+    var full_data = e.dataTransfer.getData('Text');
+    var id = full_data.split(delimiter)[0];
+    var front = full_data.split(delimiter)[1];
+    var back = full_data.split(delimiter)[2];
+
+    // disallow duplicate drops
+    if (!$(drop).children('#'+id).length) {
+      this.innerHTML += '<li id="'+id+'"><span class="front">'+front+'</span><span class="back">'+back+'</span></li>';
+      // remove the original copy
+      $('.cards').children('li#'+id).remove();
+    }
+
+    return false;
+  });
+
 });
-
-// to get IE to work
-addEvent(bin, 'dragenter', function (e) {
-  this.className = 'over';
-  return false;
-});
-
-addEvent(bin, 'dragleave', function () {
-  this.className = '';
-});
-
-addEvent(bin, 'drop', function (e) {
-  if (e.stopPropagation) e.stopPropagation(); // stops the browser from redirecting...why???
-
-  var el = document.getElementById(e.dataTransfer.getData('Text'));
-
-  el.parentNode.removeChild(el);
-
-  setTimeout(function () {
-    var t = setInterval(function () {
-      if (y.style.opacity <= 0) {
-        if (msie) { // don't bother with the animation
-          y.style.display = 'none';
-        }
-        clearInterval(t); 
-      } else {
-        y.style.opacity -= 0.1;
-      }
-    }, 50);
-  }, 250);
-
-  return false;
-});
-

@@ -1,10 +1,11 @@
 <ul class="cards">
   <% @cards.each do |card| %>
-    <li draggable="true">
+    <li draggable="true" id="card_<%= card.id %>">
       <%= render card %>
     </li>
   <% end %>
   <li><%= link_to 'Create card', [:new, @deck, :card], :class => "create-link" %></li>
+  <li><a class="flip-all" href="javascript:void(0);">flip all</a></li>
 </ul>
 
 <div id="bin">

@@ -8,7 +8,7 @@
   </span>
 <% else %>
   <span class="front">
-    <%= card.front %>
+    <div class="text"><%= card.front %></div>
     <div class="actions">
       <%= link_to 'edit', edit_deck_card_path(@deck, card), :class => 'edit' %>
       <%= link_to 'delete', [@deck, card], :method => :delete, :class => 'delete' %>

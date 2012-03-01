@@ -38,7 +38,7 @@ div.notice {
   padding: 0;
 }
 
-.cards, .decks {
+.cards, .decks, #bin {
   overflow: auto;
   li {
     display: block;
@@ -51,7 +51,7 @@ div.notice {
     -webkit-perspective: 600px;
     width: $card-size;
 
-    a.create-link {
+    a.create-link, a.flip-all {
       background: $red;
       bottom: 0;
       color: #fff;
@@ -86,7 +86,7 @@ div.notice {
   }
 }
 
-.cards {
+.cards, #bin {
   @extend .animation-card-entry;
   position: relative;
 
@@ -198,7 +198,7 @@ div.notice {
   display: block;
   margin-top: 1em;
   min-height: 100px;
-  padding: 1em;
+  padding: 1em 1em 0 1em;
 
   &.over {
     border: .25em solid yellow;
@@ -207,6 +207,12 @@ div.notice {
   h2 {
     color: lighten($gray, 20%);
     font-weight: normal;
+    margin-bottom: 1em;
+  }
+
+  li {
+    width: $card-size / 1.5;
+    height: $card-size / 1.5;
   }
 }
 
