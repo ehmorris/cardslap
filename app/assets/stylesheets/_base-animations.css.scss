@@ -1,15 +1,39 @@
-.animation-card-entry {
-  @include animation(card-entry 0.3s $ease-out-sine);
+.animation-slide-entry {
+  @include animation(slide-entry 0.2s $ease-out-sine);
+  @include animation-fill-mode(both);
 }
 
-@mixin card-entry {
+@mixin slide-entry {
   0% {
-    left: 100%;
+    right: 100%;
   }
   100% {
-    left: 0;
+    right: 0;
   }
 }
-@-webkit-keyframes card-entry { @include card-entry; }
-   @-moz-keyframes card-entry { @include card-entry; }
-        @keyframes card-entry { @include card-entry; }
+@-webkit-keyframes slide-entry { @include slide-entry; }
+   @-moz-keyframes slide-entry { @include slide-entry; }
+        @keyframes slide-entry { @include slide-entry; }
+
+
+.animation-fade-in {
+  @include animation(fade-in .3s $ease-out-sine);
+  @include animation-fill-mode(both);
+}
+
+@mixin fade-in {
+  0% {
+    margin-bottom: 3em;
+    margin-top: -2em;
+    opacity: 0;
+  }
+  100% {
+    margin-bottom: 1em;
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fade-in { @include fade-in; }
+   @-moz-keyframes fade-in { @include fade-in; }
+        @keyframes fade-in { @include fade-in; }
+

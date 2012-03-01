@@ -39,7 +39,8 @@ div.notice {
 }
 
 .cards, .decks, #bin {
-  overflow: auto;
+  position: relative;
+
   li {
     display: block;
     float: left;
@@ -51,7 +52,7 @@ div.notice {
     -webkit-perspective: 600px;
     width: $card-size;
 
-    a.create-link, a.flip-all {
+    a.create-link {
       background: $red;
       bottom: 0;
       color: #fff;
@@ -87,8 +88,8 @@ div.notice {
 }
 
 .cards, #bin {
-  @extend .animation-card-entry;
-  position: relative;
+  @extend .animation-slide-entry;
+  overflow: auto;
 
   li {
     .front, .back {
@@ -146,7 +147,17 @@ div.notice {
 
 .decks {
   li {
+    @extend .animation-fade-in;
     overflow: visible;
+
+    $t: 0.1s;
+    $delay: $t;
+    @for $child from 1 through 20 {
+      &:nth-child(#{$child}) {
+        @include animation-delay($delay);
+      }
+      $delay: $delay + $t;
+    }
 
     &.create-deck {
       background: $red;
@@ -226,6 +237,11 @@ div.notice {
   margin: 0 1em 1em 0;
   padding: 1em;
   width: $card-size;
+
+  &#card_back {
+    background: lighten($gray, 40%);
+    color: #000;
+  }
 
   &:focus {
     background: darken($gray, 10%);

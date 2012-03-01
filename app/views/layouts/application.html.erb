@@ -14,7 +14,8 @@
         $(this).toggleClass('flip');
       });
 
-      $('.flip-all').live('click', function() {
+      // flip each card on click and hold for any card
+      $('.cards li').live('longclick', function() {
         $('.cards li').each(function() {
           $(this).toggleClass('flip');
         });
