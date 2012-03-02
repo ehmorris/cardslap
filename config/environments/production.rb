@@ -57,4 +57,7 @@ Cardslap::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  # Set mailing host
+  config.action_mailer.default_url_options = { :host => 'cardslap.heroku.com' }
 end
