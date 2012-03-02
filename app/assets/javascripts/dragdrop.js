@@ -1,11 +1,11 @@
 
 // constants
-//***************************************************************************
+//*****************************************************************************
 
 var delimiter = '<>';
 
 // functions
-//***************************************************************************
+//*****************************************************************************
 
 function cancel(e) {
   if (e.preventDefault) {
@@ -28,15 +28,18 @@ function get_draggable() {
   dragItems.each(function() {
     addEvent($(this), 'dragstart', function (event) {
       // store the card's data for pickup on drop
-      var id = $(this).attr('id');
-      var html = '<li draggable="true" id="'+id+'">' + $(this).html() + '</li>';
+      var id = $(this).attr('class');
+      var html = '<li draggable="true" class="'+id+'">'+$(this).html()+'</li>';
       event.dataTransfer.setData('Text', id+delimiter+html);
     });
 
-    // delete old item and its reorder-target
+    // delete old item and its reorder-target if successfully reordered
     addEvent($(this), 'dragend', function (event) {
-      $(this).next().remove();
-      $(this).remove();
+      var id = $(this).attr('class');
+      if ($('.'+id).length > 1) {
+        $(this).next().remove();
+        $(this).remove();
+      }
     });
   });
 }
@@ -58,7 +61,7 @@ function get_reorder() {
     var html = full_data.split(delimiter)[1];
 
     // prevent duplicates on reorder
-    if ($('.cards').children('#'+id).length <= 1) {
+    if ($('.cards').children('.'+id).length <= 1) {
       $(this).after(html + '<li class="reorder-target"></li>');
     }
 
@@ -98,9 +101,11 @@ $(function() {
     var html = full_data.split(delimiter)[1];
 
     // disallow duplicate drops
-    if (!$(memorize_drop).children('#'+id).length) {
+    if (!$(memorize_drop).children('.'+id).length) {
       this.innerHTML += html;
     }
+
+    get_draggable();
 
     return false;
   });
