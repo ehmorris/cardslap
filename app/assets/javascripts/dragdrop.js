@@ -22,19 +22,6 @@ function remove_over(e) {
   this.classList.remove('over'); 
 }
 
-function render_card(id, front, back) {
-  if (front.slice(-3) == 'png' || 
-      front.slice(-3) == 'jpg' || 
-      front.slice(-3) == 'gif') {
-    var front_html = '<span class="front image"><img src="'+front+'" /></span>';
-  }
-  else {
-    var front_html = '<span class="front"><div class="text">'+front+'</div></span>';
-  }
-  var back_html = '<span class="back">'+back+'</span>';
-  return '<li draggable="true" id="'+id+'">'+front_html+back_html+'</li>';
-}
-
 function get_draggable() {
   var dragItems = $('[draggable=true]');
 
@@ -42,14 +29,8 @@ function get_draggable() {
     addEvent($(this), 'dragstart', function (event) {
       // store the card's data for pickup on drop
       var id = $(this).attr('id');
-      if ($(this).children('.front').children('.text').length) {
-        var front = $(this).children('.front').children('.text').text();
-      }
-      else {
-        var front = $(this).children('.front').children('img').attr('src');
-      }
-      var back = $(this).children('.back').text();
-      event.dataTransfer.setData('Text', id+delimiter+front+delimiter+back);
+      var html = '<li draggable="true" id="'+id+'">' + $(this).html() + '</li>';
+      event.dataTransfer.setData('Text', id+delimiter+html);
     });
 
     // delete old item and its reorder-target
@@ -74,15 +55,11 @@ function get_reorder() {
 
     var full_data = e.dataTransfer.getData('Text');
     var id = full_data.split(delimiter)[0];
-    var front = full_data.split(delimiter)[1];
-    var back = full_data.split(delimiter)[2];
+    var html = full_data.split(delimiter)[1];
 
     // prevent duplicates on reorder
     if ($('.cards').children('#'+id).length <= 1) {
-      $(this).after(
-        render_card(id, front, back) + 
-        '<li class="reorder-target"></li>'
-      );
+      $(this).after(html + '<li class="reorder-target"></li>');
     }
 
     // re-get draggable items after rendering new card
@@ -118,14 +95,11 @@ $(function() {
 
     var full_data = e.dataTransfer.getData('Text');
     var id = full_data.split(delimiter)[0];
-    var front = full_data.split(delimiter)[1];
-    var back = full_data.split(delimiter)[2];
+    var html = full_data.split(delimiter)[1];
 
     // disallow duplicate drops
     if (!$(memorize_drop).children('#'+id).length) {
-      // remove card reorder-target
-      //$('.cards').children('li#card_'+id).next().remove();
-      this.innerHTML += render_card(id, front, back);
+      this.innerHTML += html;
     }
 
     return false;
