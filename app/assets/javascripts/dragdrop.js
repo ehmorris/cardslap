@@ -1,3 +1,12 @@
+
+// constants
+//***************************************************************************
+
+var delimiter = '<>';
+
+// functions
+//***************************************************************************
+
 function cancel(e) {
   if (e.preventDefault) {
     e.preventDefault();
@@ -14,27 +23,23 @@ function remove_over(e) {
 }
 
 function render_card(id, front, back) {
-  if (front.slice(-3) == 'png' || front.slice(-3) == 'jpg' || front.slice(-3) == 'gif') {
+  if (front.slice(-3) == 'png' || 
+      front.slice(-3) == 'jpg' || 
+      front.slice(-3) == 'gif') {
     var front_html = '<span class="front image"><img src="'+front+'" /></span>';
   }
   else {
-    var front_html = '<span class="front">'+front+'</span>';
+    var front_html = '<span class="front"><div class="text">'+front+'</div></span>';
   }
   var back_html = '<span class="back">'+back+'</span>';
-  return '<li id="'+id+'">'+front_html+back_html+'</li>';
+  return '<li draggable="true" id="'+id+'">'+front_html+back_html+'</li>';
 }
 
-$(function() {
+function get_draggable() {
+  var dragItems = $('[draggable=true]');
 
-  // settings for draggable items (cards)
-  //***************************************************************************
-
-  var dragItems = document.querySelectorAll('[draggable=true]');
-
-  var delimiter = '<>';
-
-  for (var i = 0; i < dragItems.length; i++) {
-    addEvent(dragItems[i], 'dragstart', function (event) {
+  dragItems.each(function() {
+    addEvent($(this), 'dragstart', function (event) {
       // store the card's data for pickup on drop
       var id = $(this).attr('id');
       if ($(this).children('.front').children('.text').length) {
@@ -44,9 +49,54 @@ $(function() {
         var front = $(this).children('.front').children('img').attr('src');
       }
       var back = $(this).children('.back').text();
-      event.dataTransfer.setData('Text', id + delimiter + front + delimiter + back);
+      event.dataTransfer.setData('Text', id+delimiter+front+delimiter+back);
     });
-  }
+
+    // delete old item and its reorder-target
+    addEvent($(this), 'dragend', function (event) {
+      $(this).next().remove();
+      $(this).remove();
+    });
+  });
+}
+
+function get_reorder() {
+  var reorder = $('.reorder-target');
+
+  addEvent(reorder, 'dragover', cancel);
+  addEvent(reorder, 'dragenter', add_over);
+  addEvent(reorder, 'drop', remove_over);
+  addEvent(reorder, 'dragleave', remove_over);
+
+  addEvent(reorder, 'drop', function (e) {
+    // stops the browser from redirecting off to the text.
+    if (e.preventDefault) e.preventDefault();
+
+    var full_data = e.dataTransfer.getData('Text');
+    var id = full_data.split(delimiter)[0];
+    var front = full_data.split(delimiter)[1];
+    var back = full_data.split(delimiter)[2];
+
+    $(this).after(
+      render_card(id, front, back) + 
+      '<li class="reorder-target"></li>'
+    );
+
+    // re-get draggable items after rendering new card
+    get_draggable();
+
+    // re-get reorder-targets after rendering new one
+    get_reorder();
+
+    return false;
+  });
+}
+
+$(function() {
+
+  get_draggable();
+
+  get_reorder();
 
   // settings for the memorize pile drag target
   //***************************************************************************
@@ -70,37 +120,12 @@ $(function() {
 
     // disallow duplicate drops
     if (!$(memorize_drop).children('#'+id).length) {
+      // remove card reorder-target
+      //$('.cards').children('li#card_'+id).next().remove();
       this.innerHTML += render_card(id, front, back);
-      // remove the original copy and its reorder-target
-      $('.cards').children('li#'+id).next().remove();
-      $('.cards').children('li#'+id).remove();
-
     }
 
     return false;
-  });
-
-  // settings for the reorder-target drag targets
-  //***************************************************************************
-
-  var reorder = $('.reorder-target');
-
-  reorder.each(function() {
-
-    addEvent(reorder, 'dragover', cancel);
-    addEvent(reorder, 'dragenter', add_over);
-    addEvent(reorder, 'drop', remove_over);
-    addEvent(reorder, 'dragleave', remove_over);
-
-    addEvent(reorder, 'drop', function (e) {
-      // stops the browser from redirecting off to the text.
-      if (e.preventDefault) e.preventDefault();
-
-      console.log(e.dataTransfer.getData('Text'));
-
-      return false;
-    });
-
   });
 
 });

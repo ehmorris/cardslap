@@ -54,6 +54,7 @@ div.notice {
 
     &.reorder-target {
       margin: 0;
+      @include transition;
       width: 1em;
 
       &.over {
@@ -221,6 +222,7 @@ div.notice {
   min-height: $card-size / 2;
   min-width: $card-size;
   padding: 1em 0 0 1em;
+  @include transition;
 
   &.over {
     border: .15em solid yellow;
