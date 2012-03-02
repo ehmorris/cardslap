@@ -77,10 +77,13 @@ function get_reorder() {
     var front = full_data.split(delimiter)[1];
     var back = full_data.split(delimiter)[2];
 
-    $(this).after(
-      render_card(id, front, back) + 
-      '<li class="reorder-target"></li>'
-    );
+    // prevent duplicates on reorder
+    if ($('.cards').children('#'+id).length <= 1) {
+      $(this).after(
+        render_card(id, front, back) + 
+        '<li class="reorder-target"></li>'
+      );
+    }
 
     // re-get draggable items after rendering new card
     get_draggable();
