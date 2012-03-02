@@ -10,9 +10,6 @@
 # Ignore the default SQLite database.
 /db/*.sqlite3
 
-# Ignore the file with sendgrid credentials
-/config/initializers/mail.rb
-
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
