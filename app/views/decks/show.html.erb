@@ -3,6 +3,7 @@
     <li draggable="true" id="card_<%= card.id %>">
       <%= render card %>
     </li>
+    <li class="reorder-target"></li>
   <% end %>
   <li><%= link_to 'Create card', [:new, @deck, :card], :class => "create-link" %></li>
 </ul>
