@@ -1,12 +1,10 @@
 module CardsHelper
   def is_string_image? str
-    # make sure string has no white space
-    if !str.match(/\s/)
-      uri = URI.parse(str)
-      # if the string is a url, assume it's an image
-      return %w(http https).include?(uri.scheme)
-    else
-      return false
-    end
+    uri = URI.parse(str)
+    # if the string is a url, assume it's an image
+    return %w(http https).include?(uri.scheme)
+  # if URI.parse raises an invalid error, return false
+  rescue URI::InvalidURIError
+    return false
   end
 end
