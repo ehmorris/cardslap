@@ -3,7 +3,8 @@ class Deck < ActiveRecord::Base
   has_many :cards, :dependent => :destroy
 
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  belongs_to :user
+  friendly_id :name, :use => :scoped, :scope => :user
 
   def should_generate_new_friendly_id?
     new_record?

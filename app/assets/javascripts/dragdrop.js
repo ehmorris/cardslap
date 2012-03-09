@@ -102,8 +102,9 @@ $(function() {
     var id = full_data.split(delimiter)[0];
     var html = full_data.split(delimiter)[1];
 
-    // disallow duplicate drops
-    if (!$(memorize_drop).children('li[data-id='+id+']').length) {
+    // disallow duplicate drops, and make sure the dragged element was a card
+    if (!$(memorize_drop).children('li[data-id='+id+']').length &&
+        !isNaN(id)) {
       this.innerHTML += html;
     }
 
