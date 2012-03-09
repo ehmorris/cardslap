@@ -1,6 +1,6 @@
 <ul class="cards">
   <% @cards.each do |card| %>
-    <li draggable="true" class="card_<%= card.id %>">
+    <li draggable="true" data-id="<%= card.id %>">
       <%= render card %>
     </li>
     <li class="reorder-target"></li>
