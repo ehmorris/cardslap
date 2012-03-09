@@ -31,7 +31,9 @@ aside {
   right: 4em;
   width: 25%;
 
-  form.new_user {
+  form.sign-up, form.sign-in {
+    margin-bottom: 1.5em;
+
     input {
       @include box-sizing(border-box);
       display: block;
@@ -40,13 +42,18 @@ aside {
     }
 
     input[type="submit"] {
-      @include button(blue);
+      @include button(shiny, lighten($dark, 20%));
       font-size: 100%;
     }
   }
 
+  form.sign-up input[type="submit"] {
+    @include button(shiny);
+    font-size: 100%;
+  }
+
   p {
     font-size: 80%;
-    margin-top: 1.5em;
+    margin-bottom: .5em;
   }
 }

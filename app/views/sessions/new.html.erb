@@ -1,10 +1,22 @@
-<%= form_for :session, :url => session_path do |form| %>
-  <%= form.text_field :email, :type => 'email', :placeholder => 'email' %>
-  <%= form.password_field :password, :placeholder => 'password' %>
-  <%= form.submit "Sign in" %>
-<% end %>
-
-<footer>
+<aside>
+  <%= form_for :session, :url => session_path, :html => { :class => 'sign-in' } do |form| %>
+    <%= form.text_field :email, :type => 'email', :placeholder => 'email' %>
+    <%= form.password_field :password, :placeholder => 'password' %>
+    <%= form.submit "Sign in" %>
+  <% end %>
   <p>Don't have an account? <%= link_to 'Sign up', sign_up_path %></p>
   <p><%= link_to "Forgot password?", new_password_path %></p>
-</footer>
+</aside>
+
+<figure>
+  <%= image_tag 'decks.png', :class => 'marketing-image' %>
+  <figcaption>Organize flashcards by deck. Make as many decks as you want.</figcaption>
+</figure>
+<figure>
+  <%= image_tag 'deck-french.png', :class => 'marketing-image' %>
+  <figcaption>Click to flip, click and hold to flip all, and stash memorized cards until you've gotten them all.</figcaption>
+</figure>
+<figure>
+  <%= image_tag 'deck-arth.png', :class => 'marketing-image' %>
+  <figcaption>Cards can contain text or images on either side.</figcaption>
+</figure>

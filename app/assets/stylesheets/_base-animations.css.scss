@@ -38,12 +38,17 @@
         @keyframes fade-in { @include fade-in; }
 
 .animation-caption-entry {
-  @include animation(caption-entry .5s $ease-out-sine);
+  @include animation(caption-entry 1.0s $ease-out-sine);
 }
 
 @mixin caption-entry {
   0% {
     left: -100%;
+    opacity: 0;
+  }
+  50% {
+    left: -100%;
+    opacity: 0;
   }
   100% {
     left: 0;
