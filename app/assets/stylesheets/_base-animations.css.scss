@@ -37,3 +37,18 @@
    @-moz-keyframes fade-in { @include fade-in; }
         @keyframes fade-in { @include fade-in; }
 
+.animation-caption-entry {
+  @include animation(caption-entry .5s $ease-out-sine);
+}
+
+@mixin caption-entry {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0;
+  }
+}
+@-webkit-keyframes caption-entry { @include caption-entry; }
+   @-moz-keyframes caption-entry { @include caption-entry; }
+        @keyframes caption-entry { @include caption-entry; }
