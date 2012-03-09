@@ -18,7 +18,7 @@ function add_over(e) {
 }
 
 function remove_over(e) {
-  this.classList.remove('over'); 
+  this.classList.remove('over');
 }
 
 function get_draggable() {
@@ -36,7 +36,10 @@ function get_draggable() {
     addEvent($(this), 'dragend', function (event) {
       var id = $(this).data('id');
       if ($('li[data-id='+id+']').length > 1) {
-        $(this).next().remove();
+        // only remove next if not in memorized pile
+        if ($(this).parent().attr('id') !== 'bin') {
+          $(this).next().remove();
+        }
         $(this).remove();
       }
     });
@@ -60,7 +63,7 @@ function get_reorder() {
     var html = full_data.split(delimiter)[1];
 
     // prevent duplicates on reorder
-    if ($('.cards').children('li[data-id='+id+']').length <= 1) {
+    if ($('li[data-id='+id+']').length <= 1) {
       $(this).after(html + '<li class="reorder-target"></li>');
     }
 
