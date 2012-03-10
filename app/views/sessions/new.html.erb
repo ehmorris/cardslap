@@ -8,15 +8,4 @@
   <p><%= link_to "Forgot password?", new_password_path %></p>
 </aside>
 
-<figure>
-  <%= image_tag 'decks.png', :class => 'marketing-image' %>
-  <figcaption>Organize flashcards by deck. Make as many decks as you want.</figcaption>
-</figure>
-<figure>
-  <%= image_tag 'deck-french.png', :class => 'marketing-image' %>
-  <figcaption>Click to flip, click and hold to flip all, and stash memorized cards until you've gotten them all.</figcaption>
-</figure>
-<figure>
-  <%= image_tag 'deck-arth.png', :class => 'marketing-image' %>
-  <figcaption>Cards can contain text or images on either side.</figcaption>
-</figure>
+<%= render 'partials/marketing' %>

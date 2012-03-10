@@ -25,7 +25,7 @@ class Clearance::UsersController < ApplicationController
   def flash_failure_after_create
     flash.now[:notice] = translate(:bad_email_or_password,
       :scope   => [:clearance, :controllers, :passwords],
-      :default => "Must be a valid email address. Password can't be blank.")
+      :default => "Sorry, there was a problem with your sign up info. Do you want to sign in?")
   end
 
   def url_after_create

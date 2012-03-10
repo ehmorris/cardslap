@@ -6,7 +6,7 @@ figure {
 
   .marketing-image {
     @include border-radius(5px);
-    @include box-shadow(0 10px 30px 0 rgba(0,0,0,.35));
+    @include box-shadow(0 10px 25px 0 rgba(0,0,0,.3));
     width: 100%;
   }
 

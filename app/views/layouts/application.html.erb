@@ -24,36 +24,27 @@
 </head>
 <body>
   <div class="wrapper">
-    <% if signed_in? %>
-      <header>
-        <% if defined? @card %>
-          <h1><%= image_tag 'cardslap-32.png', :class => 'logo' %> <a href="<%= decks_path %>">Cardslap</a> <span><%= link_to @deck.name, deck_path(@deck) %></span></h1>
-        <% elsif defined? @deck %>
-          <h1><%= image_tag 'cardslap-32.png', :class => 'logo' %> <a href="<%= decks_path %>">Cardslap</a> <span><%= @deck.name %></span></h1>
-        <% else %>
-          <h1><%= image_tag 'cardslap-32.png', :class => 'logo' %> Cardslap</h1>
-        <% end %>
-      </header>
-      <% if flash[:notice] %>
-        <div class="notice">
-          <%= flash[:notice] %>
-        </div>
+    <header>
+      <% if defined? @card %>
+        <h1><%= image_tag 'cardslap-32.png', :class => 'logo' %> <a href="<%= decks_path %>">Cardslap</a> <span><%= link_to @deck.name, deck_path(@deck) %></span></h1>
+      <% elsif defined? @deck %>
+        <h1><%= image_tag 'cardslap-32.png', :class => 'logo' %> <a href="<%= decks_path %>">Cardslap</a> <span><%= @deck.name %></span></h1>
+      <% else %>
+        <h1><%= image_tag 'cardslap-32.png', :class => 'logo' %> Cardslap</h1>
       <% end %>
+    </header>
+    <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+      <div class="clearfix"></div>
+    <% end %>
+    <% if signed_in? %>
       <%= yield %>
       <footer>
         <p><%= current_user.email %> <%= link_to 'sign out', sign_out_path, :method => :delete %>, <%= link_to 'change password', edit_user_password_path(current_user) %></p>
       </footer>
-    </div>
-  <% else %>
-    <header>
-      <h1><%= image_tag 'cardslap-32.png', :class => 'logo' %> Cardslap</h1>
-    </header>
-    <% if flash[:notice] %>
-      <div class="notice">
-        <%= flash[:notice] %>
-      </div>
+    <% else %>
+      <%= yield %>
     <% end %>
-    <%= yield %>
-  <% end %>
+  </div>
 </body>
 </html>
