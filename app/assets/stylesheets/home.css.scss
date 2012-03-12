@@ -19,10 +19,24 @@ figure {
     display: block;
     font-size: 150%;
     left: 0;
-    line-height: 1.2em;
     padding: 2em;
     position: absolute;
     width: 100%;
+
+    p {
+      margin: 0;
+      line-height: 1.2em;
+    }
+
+    // paragraph with button
+    p:nth-child(2) {
+      margin-top: 1em;
+    }
+
+    a, a:link, a:hover, a:visited, a:active, a:focus {
+      @include button('shiny');
+      text-decoration: none;
+    }
   }
 }
 

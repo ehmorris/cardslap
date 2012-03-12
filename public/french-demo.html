@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cardslap</title>
+  <link href="/assets/application.css?body=1" media="screen" rel="stylesheet" type="text/css" />
+  <script src="/assets/jquery.js?body=1" type="text/javascript"></script>
+  <script src="/assets/jquery_ujs.js?body=1" type="text/javascript"></script>
+  <script src="/assets/h5utils.js?body=1" type="text/javascript"></script>
+  <script src="/assets/dragdrop.js?body=1" type="text/javascript"></script>
+  <script src="/assets/jquery.longclick-min.js?body=1" type="text/javascript"></script>
+  <script src="/assets/application.js?body=1" type="text/javascript"></script>
+  <meta content="authenticity_token" name="csrf-param" />
+  <meta content="tro8HYgOInlc1LYuDQ9Mkl8suS9Fb5tlOE2aXvcStvU=" name="csrf-token" />
+  <script type="text/javascript">
+      $('.cards li').live('click', function() {
+        $(this).toggleClass('flip');
+      });
+
+      $('#bin li').live('click', function() {
+        $(this).toggleClass('flip');
+      });
+
+      // flip each card on click and hold for any card
+      $('.cards li').live('longclick', function() {
+        $('.cards li').each(function() {
+          $(this).toggleClass('flip');
+        });
+      });
+  </script>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+        <h1><img alt="Cardslap-32" class="logo" src="/assets/cardslap-32.png" /> <a href="/sign-up">Cardslap</a> <span>French verbs</span></h1>
+    </header>
+    <ul class="cards">
+      <li draggable="true" data-id="21">
+        <span class="front">
+          <div class="text">To eat</div>
+          <div class="actions">
+            <a href="/sign-up" class="edit">edit</a>
+            <a href="/sign-up" class="delete" data-method="delete" rel="nofollow">delete</a>
+          </div>
+        </span>
+        <span class="back">Manger</span>
+      </li>
+      <li class="reorder-target"></li>
+      <li draggable="true" data-id="22">
+        <span class="front">
+          <div class="text">To sleep</div>
+          <div class="actions">
+            <a href="/sign-up" class="edit">edit</a>
+            <a href="/sign-up" class="delete" data-method="delete" rel="nofollow">delete</a>
+          </div>
+        </span>
+        <span class="back">Dormir</span>
+      </li>
+      <li class="reorder-target"></li>
+      <li draggable="true" data-id="23">
+        <span class="front">
+          <div class="text">To run</div>
+          <div class="actions">
+            <a href="/sign-up" class="edit">edit</a>
+            <a href="/sign-up" class="delete" data-method="delete" rel="nofollow">delete</a>
+          </div>
+        </span>
+        <span class="back">Courir</span>
+      </li>
+      <li class="reorder-target"></li>
+      <li><a href="/sign-up" class="create-link">Create card</a></li>
+    </ul>
+    <div id="bin">
+      <h2>Memorized Pile</h2>
+    </div>
+  </div>
+</body>
+</html>
+
