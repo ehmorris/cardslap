@@ -74,6 +74,9 @@
       -webkit-backface-visibility: hidden;
       -webkit-transform-style: preserve-3d;
       -webkit-transition: all .3s ease-in-out;
+      -moz-backface-visibility: hidden;
+      -moz-transform-style: preserve-3d;
+      -moz-transition: all .3s ease-in-out;
 
       &.image {
         padding: 0;
