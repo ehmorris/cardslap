@@ -1,0 +1,77 @@
+figure {
+  float: left;
+  margin-bottom: 2em;
+  position: relative;
+  width: 65%;
+
+  .marketing-image {
+    @include border-radius(5px);
+    @include box-shadow(0 10px 25px 0 rgba(0,0,0,.3));
+    width: 100%;
+  }
+
+  figcaption {
+    @extend .animation-caption-entry;
+    background: rgba(0,0,0,.5);
+    bottom: 2em;
+    @include box-sizing(border-box);
+    color: #fff;
+    display: block;
+    font-size: 150%;
+    left: 0;
+    padding: 2em;
+    position: absolute;
+    width: 100%;
+
+    p {
+      margin: 0;
+      line-height: 1.2em;
+    }
+
+    // paragraph with button
+    p:nth-child(2) {
+      margin-top: 1em;
+    }
+
+    a, a:link, a:hover, a:visited, a:active, a:focus {
+      @include button('shiny');
+      text-decoration: none;
+    }
+  }
+}
+
+figure:last-child {
+  margin-bottom: 0;
+}
+
+aside {
+  position: fixed;
+  right: 4em;
+  width: 25%;
+
+  form.sign-up, form.sign-in {
+    margin-bottom: 1.5em;
+
+    input {
+      @include box-sizing(border-box);
+      display: block;
+      margin-bottom: .5em;
+      width: 100%;
+    }
+
+    input[type="submit"] {
+      @include button(shiny, lighten($dark, 20%));
+      font-size: 100%;
+    }
+  }
+
+  form.sign-up input[type="submit"] {
+    @include button(shiny);
+    font-size: 100%;
+  }
+
+  p {
+    font-size: 80%;
+    margin-bottom: .5em;
+  }
+}
