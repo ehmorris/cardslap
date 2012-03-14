@@ -10,8 +10,15 @@ class DecksController < ApplicationController
   def create
     @user = User.find(current_user.id)
     @deck = @user.decks.build(params[:deck])
-    @deck.save
-    redirect_to new_deck_card_path(@deck)
+    if (!@deck.invalid?(:name))
+      @deck.save
+      redirect_to new_deck_card_path(@deck)
+    else
+      redirect_to decks_path
+      @deck.errors.messages.each do |msg|
+        flash[:notice] = msg.last.last.capitalize
+      end
+    end
   end
 
   def show
