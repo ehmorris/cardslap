@@ -6,8 +6,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui.min.js
 //= require h5utils.js
 //= require dragdrop.js
 //= require jquery.longclick-min.js
+//= require app.js
 //= require_self
 

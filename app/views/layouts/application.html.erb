@@ -5,22 +5,6 @@
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <script type="text/javascript">
-      $('.cards li').live('click', function() {
-        $(this).toggleClass('flip');
-      });
-
-      $('#bin li').live('click', function() {
-        $(this).toggleClass('flip');
-      });
-
-      // flip each card on click and hold for any card
-      $('.cards li').live('longclick', function() {
-        $('.cards li').each(function() {
-          $(this).toggleClass('flip');
-        });
-      });
-  </script>
 </head>
 <body>
   <div class="wrapper">
