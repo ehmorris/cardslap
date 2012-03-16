@@ -16,7 +16,7 @@ gem 'flutie'
 
 gem 'friendly_id', '~> 4.0.0'
 
-gem 'clearance'
+gem 'clearance', '~> 0.14.0'
 
 # Gems used only for assets and not required
 # in production environments by default.

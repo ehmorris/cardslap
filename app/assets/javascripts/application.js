@@ -4,6 +4,7 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
+//= require jquery_ujs
 //= require jquery.longclick-min.js
 //= require h5utils.js
 //= require dragdrop.js
