@@ -1,7 +1,7 @@
 <div id="card-size"></div>
-<ul class="cards">
+<ul class="cards" data-deck_id="<%= @deck.id %>">
   <% @cards.each do |card| %>
-    <li draggable="true" data-id="<%= card.id %>">
+    <li draggable="true" data-id="<%= card.id %>" data-order="<%= card.sort_number %>" data-bin="<%= card.bin %>">
       <%= render card %>
     </li>
     <li class="reorder-target"></li>

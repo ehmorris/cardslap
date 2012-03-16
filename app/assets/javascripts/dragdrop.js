@@ -65,13 +65,19 @@ function get_reorder() {
     // prevent duplicates on reorder
     if ($('li[data-id='+id+']').length <= 1) {
       $(this).after(html + '<li class="reorder-target"></li>');
+
+      // re-get draggable items after rendering new card
+      get_draggable();
+
+      // re-get reorder-targets after rendering new one
+      get_reorder();
+
+      $.ajax({
+        type: 'POST',
+        url: "/decks/"+deck_id+"/cards/"+id,
+        data: {_method: 'PUT', card: {bin: 'main'}}
+      });
     }
-
-    // re-get draggable items after rendering new card
-    get_draggable();
-
-    // re-get reorder-targets after rendering new one
-    get_reorder();
 
     return false;
   });
@@ -102,13 +108,20 @@ $(function() {
     var id = full_data.split(delimiter)[0];
     var html = full_data.split(delimiter)[1];
 
+    var deck_id = $('.cards').data('deck_id');
+
     // disallow duplicate drops, and make sure the dragged element was a card
     if (!$(memorize_drop).children('li[data-id='+id+']').length &&
         !isNaN(id)) {
       this.innerHTML += html;
-    }
+      get_draggable();
 
-    get_draggable();
+      $.ajax({
+        type: 'POST',
+        url: "/decks/"+deck_id+"/cards/"+id,
+        data: {_method: 'PUT', card: {bin: 'bin'}}
+      });
+    }
 
     return false;
   });

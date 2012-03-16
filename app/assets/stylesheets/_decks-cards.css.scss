@@ -207,12 +207,12 @@
   }
 
   li {
-    height: $card-size / 1.5;
+    height: $card-size / 1.5 !important;
     margin-right: 1em;
-    width: $card-size / 1.5;
+    width: $card-size / 1.5 !important;
 
     .front.image img, .back.image img {
-      width: $card-size / 1.5;
+      width: $card-size / 1.5 !important;
     }
   }
 }
