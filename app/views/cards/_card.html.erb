@@ -8,7 +8,7 @@
   </span>
 <% else %>
   <span class="front">
-    <div class="text"><%= card.front %></div>
+    <pre class="text"><%= card.front %></pre>
     <div class="actions">
       <%= link_to 'edit', edit_deck_card_path(@deck, card), :class => 'edit' %>
       <%= link_to 'delete', [@deck, card], :method => :delete, :class => 'delete' %>
@@ -19,5 +19,5 @@
 <% if is_string_image?(card.back) %>
   <span class="back image"><img src="<%= card.back %>" /></span>
 <% else %>
-  <span class="back"><%= card.back %></span>
+ <span class="back"><pre class="text"><%= card.back %></pre></span>
 <% end %>
