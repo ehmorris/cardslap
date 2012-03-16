@@ -1,0 +1,53 @@
+#card-size.ui-slider {
+  background: #eee;
+  border: 1px solid #999;
+  @include box-sizing(border-box);
+  height: .5em;
+  margin: 0 auto 3em auto;
+  position: relative;
+  text-align: left;
+  width: 35%;
+
+  .ui-slider-handle, .ui-slider-handle:focus {
+    background: #000;
+    border: 1px solid #000;
+    @include border-radius(100px);
+    @include box-sizing(border-box);
+    cursor: default;
+    height: 1em;
+    @include linear-gradient(lighten(#000, 30%), lighten(#000, 20%));
+    margin-left: -.5em;
+    outline: none;
+    position: absolute;
+    top: -.3em;
+    width: 1em;
+    z-index: 2;
+  }
+
+  .ui-slider-handle:active {
+    background: #000;
+  }
+
+  .ui-slider-range {
+    background: #ccc;
+    border: 0;
+    border: none;
+    display: block;
+    height: .5em;
+    padding: 0;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .ui-slider-horizontal {
+    height: .8em;
+
+    .ui-slider-range-min {
+      left: 0;
+    }
+
+    .ui-slider-range-max {
+      right: 0;
+    }
+  }
+}

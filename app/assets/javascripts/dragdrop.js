@@ -28,7 +28,7 @@ function get_draggable() {
     addEvent($(this), 'dragstart', function (event) {
       // store the card's data for pickup on drop
       var id = $(this).data('id');
-      var html = '<li draggable="true" data-id="'+id+'">'+$(this).html()+'</li>';
+      var html = $(this).clone().wrap('<div>').parent().html();
       event.dataTransfer.setData('Text', id+delimiter+html);
     });
 

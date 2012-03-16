@@ -26,6 +26,7 @@ $(function() {
         if ($(this).children('.front').hasClass('image')) {
           $(this).children('.image').children('img').width(ui.value);
         }
+        $('#bin').width(ui.value);
       });
     }
   });
