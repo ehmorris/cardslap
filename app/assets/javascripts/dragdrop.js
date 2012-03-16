@@ -61,6 +61,7 @@ function get_reorder() {
     var full_data = e.dataTransfer.getData('Text');
     var id = full_data.split(delimiter)[0];
     var html = full_data.split(delimiter)[1];
+    var deck_id = $('.cards').data('deck_id');
 
     // prevent duplicates on reorder
     if ($('li[data-id='+id+']').length <= 1) {
@@ -107,7 +108,6 @@ $(function() {
     var full_data = e.dataTransfer.getData('Text');
     var id = full_data.split(delimiter)[0];
     var html = full_data.split(delimiter)[1];
-
     var deck_id = $('.cards').data('deck_id');
 
     // disallow duplicate drops, and make sure the dragged element was a card

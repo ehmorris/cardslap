@@ -1,14 +1,24 @@
 <div id="card-size"></div>
 <ul class="cards" data-deck_id="<%= @deck.id %>">
   <% @cards.each do |card| %>
-    <li draggable="true" data-id="<%= card.id %>" data-order="<%= card.sort_number %>" data-bin="<%= card.bin %>">
-      <%= render card %>
-    </li>
-    <li class="reorder-target"></li>
+    <% if card.bin == 'main' %>
+      <li draggable="true" data-id="<%= card.id %>" data-order="<%= card.sort_number %>" data-bin="<%= card.bin %>">
+        <%= render card %>
+      </li>
+      <li class="reorder-target"></li>
+    <% end %>
   <% end %>
   <li><%= link_to 'Create card', [:new, @deck, :card], :class => "create-link" %></li>
 </ul>
 
 <div id="bin">
   <h2>Memorized Pile</h2>
+  <% @cards.each do |card| %>
+    <% if card.bin == 'bin' %>
+      <li draggable="true" data-id="<%= card.id %>" data-order="<%= card.sort_number %>" data-bin="<%= card.bin %>">
+        <%= render card %>
+      </li>
+      <li class="reorder-target"></li>
+    <% end %>
+  <% end %>
 </div>
