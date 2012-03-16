@@ -9,6 +9,7 @@
     -moz-perspective: 600px;
     overflow: hidden;
     position: relative;
+    @include transition;
     -webkit-perspective: 600px;
     width: $card-size;
 
@@ -82,6 +83,7 @@
         padding: 0;
 
         img {
+          @include transition;
           width: $card-size;
         }
       }
