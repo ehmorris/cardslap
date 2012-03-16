@@ -2,37 +2,19 @@
 <html>
 <head>
   <title>Cardslap</title>
-  <link href="/assets/application.css?body=1" media="screen" rel="stylesheet" type="text/css" />
-  <script src="/assets/jquery.js?body=1" type="text/javascript"></script>
-  <script src="/assets/jquery_ujs.js?body=1" type="text/javascript"></script>
-  <script src="/assets/h5utils.js?body=1" type="text/javascript"></script>
-  <script src="/assets/dragdrop.js?body=1" type="text/javascript"></script>
-  <script src="/assets/jquery.longclick-min.js?body=1" type="text/javascript"></script>
-  <script src="/assets/application.js?body=1" type="text/javascript"></script>
+  <link href="/assets/application.css" media="screen" rel="stylesheet" type="text/css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js" type="text/javascript"></script>
+  <script src="/assets/application.js" type="text/javascript"></script>
   <meta content="authenticity_token" name="csrf-param" />
   <meta content="tro8HYgOInlc1LYuDQ9Mkl8suS9Fb5tlOE2aXvcStvU=" name="csrf-token" />
-  <script type="text/javascript">
-      $('.cards li').live('click', function() {
-        $(this).toggleClass('flip');
-      });
-
-      $('#bin li').live('click', function() {
-        $(this).toggleClass('flip');
-      });
-
-      // flip each card on click and hold for any card
-      $('.cards li').live('longclick', function() {
-        $('.cards li').each(function() {
-          $(this).toggleClass('flip');
-        });
-      });
-  </script>
 </head>
 <body>
   <div class="wrapper">
     <header>
-        <h1><img alt="Cardslap-32" class="logo" src="/assets/cardslap-32.png" /> <a href="/sign_up">Cardslap</a> <span>French verbs</span></h1>
+      <h1><img alt="Cardslap-32" class="logo" src="/assets/cardslap-32.png" /> <a href="/sign_up">Cardslap</a> <span>French verbs</span></h1>
     </header>
+    <div id="card-size"></div>
     <ul class="cards">
       <li draggable="true" data-id="21">
         <span class="front">
