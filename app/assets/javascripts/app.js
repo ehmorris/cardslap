@@ -13,6 +13,14 @@ $('.cards li').live('longclick', function() {
   });
 });
 
+// flip each card in memorized pile on click and hold for any card
+$('#bin li').live('longclick', function() {
+  $('#bin li').each(function() {
+    $(this).toggleClass('flip');
+  });
+});
+
+
 $(function() {
   $("#card-size").slider({
     range: "min",
