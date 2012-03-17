@@ -33,6 +33,10 @@
       position: absolute;
       right: 0;
       top: 0;
+
+      &:active {
+        background: darken($red, 10%);
+      }
     }
 
     .actions {
@@ -237,4 +241,32 @@
     background: darken($gray, 10%);
     outline: none;
   }
+}
+
+.edit_deck .textarea {
+  display: inline-block;
+  float: left;
+  margin: 0 1em 1em 0;
+  overflow: visible;
+  position: relative;
+}
+
+.edit_deck textarea {
+  margin: 0;
+  border: 1px solid #fff;
+  float: none;
+}
+
+.edit_deck .textarea::after {
+  background: lighten($gray, 20%);
+  bottom: 0;
+  content: "";
+  display: block;
+  height: $card-size;
+  margin-bottom: -4px;
+  margin-right: -4px;
+  position: absolute;
+  right: 0;
+  width: $card-size;
+  z-index: -1;
 }
