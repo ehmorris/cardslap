@@ -14,13 +14,13 @@
     @include border-radius(100px);
     @include box-sizing(border-box);
     cursor: default;
-    height: 1em;
+    height: .95em;
     @include linear-gradient(lighten(#000, 30%), lighten(#000, 20%));
     margin-left: -.5em;
     outline: none;
     position: absolute;
     top: -.3em;
-    width: 1em;
+    width: .95em;
     z-index: 2;
   }
 
