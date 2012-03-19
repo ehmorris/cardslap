@@ -49,10 +49,6 @@ function get_draggable() {
           var loop_id = $(this).data('id');
           var sort_number = e + 1;
 
-          console.log($(this));
-          console.log('loop_id: '+loop_id);
-          console.log('sort_num: '+sort_number);
-
           $.ajax({
             type: 'POST',
             url: '/decks/'+deck_id+'/cards/'+loop_id,
