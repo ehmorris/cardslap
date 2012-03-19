@@ -2,7 +2,7 @@
 <ul class="cards" data-deck_id="<%= @deck.id %>">
   <% @cards.each do |card| %>
     <% if card.bin == 'main' %>
-      <li draggable="true" data-id="<%= card.id %>" data-order="<%= card.sort_number %>" data-bin="<%= card.bin %>">
+      <li draggable="true" data-id="<%= card.id %>">
         <%= render card %>
       </li>
       <li class="reorder-target"></li>
@@ -15,7 +15,7 @@
   <h2>Memorized Pile</h2>
   <% @cards.each do |card| %>
     <% if card.bin == 'bin' %>
-      <li draggable="true" data-id="<%= card.id %>" data-order="<%= card.sort_number %>" data-bin="<%= card.bin %>">
+      <li draggable="true" data-id="<%= card.id %>">
         <%= render card %>
       </li>
     <% end %>

@@ -33,6 +33,7 @@ function get_draggable() {
     });
 
     // delete old item and its reorder-target if successfully reordered
+    // save card order after old card is removed
     addEvent($(this), 'dragend', function (event) {
       var id = $(this).data('id');
       if ($('li[data-id='+id+']').length > 1) {
@@ -41,6 +42,23 @@ function get_draggable() {
           $(this).next().remove();
         }
         $(this).remove();
+
+        // save card order
+        $('.cards li[draggable=true]').each(function(e) {
+          var deck_id = $('.cards').data('deck_id');
+          var loop_id = $(this).data('id');
+          var sort_number = e + 1;
+
+          console.log($(this));
+          console.log('loop_id: '+loop_id);
+          console.log('sort_num: '+sort_number);
+
+          $.ajax({
+            type: 'POST',
+            url: '/decks/'+deck_id+'/cards/'+loop_id,
+            data: {_method: 'PUT', card: {sort_number: sort_number}}
+          });
+        });
       }
     });
   });
@@ -73,9 +91,10 @@ function get_reorder() {
       // re-get reorder-targets after rendering new one
       get_reorder();
 
+      // save card bin location
       $.ajax({
         type: 'POST',
-        url: "/decks/"+deck_id+"/cards/"+id,
+        url: '/decks/'+deck_id+'/cards/'+id,
         data: {_method: 'PUT', card: {bin: 'main'}}
       });
     }
@@ -116,6 +135,7 @@ $(function() {
       this.innerHTML += html;
       get_draggable();
 
+      // save card bin location
       $.ajax({
         type: 'POST',
         url: "/decks/"+deck_id+"/cards/"+id,
