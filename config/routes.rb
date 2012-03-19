@@ -1,5 +1,5 @@
 Cardslap::Application.routes.draw do
-  root :to => 'decks#index'
+  root :to => 'home#index'
 
   resources :decks do
     resources :cards

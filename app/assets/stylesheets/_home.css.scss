@@ -44,12 +44,12 @@ figure:last-child {
   margin-bottom: 0;
 }
 
-aside {
+aside.sign-up {
   position: fixed;
   right: 4em;
   width: 25%;
 
-  form.sign-up, form.sign-in {
+  form.sign-up {
     margin-bottom: 1.5em;
 
     input {
@@ -60,14 +60,9 @@ aside {
     }
 
     input[type="submit"] {
-      @include button(shiny, lighten($dark, 20%));
+      @include button(shiny);
       font-size: 100%;
     }
-  }
-
-  form.sign-up input[type="submit"] {
-    @include button(shiny);
-    font-size: 100%;
   }
 
   p {

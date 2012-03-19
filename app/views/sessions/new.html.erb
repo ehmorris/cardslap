@@ -1,4 +1,4 @@
-<aside>
+<aside class="sign-in">
   <%= form_for :session, :url => session_path, :html => { :class => 'sign-in' } do |form| %>
     <%= form.text_field :email, :type => 'email', :placeholder => 'email' %>
     <%= form.password_field :password, :placeholder => 'password' %>
@@ -8,4 +8,3 @@
   <p><%= link_to "Forgot password?", new_password_path %></p>
 </aside>
 
-<%= render 'partials/marketing' %>
