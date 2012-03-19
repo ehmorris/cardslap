@@ -18,6 +18,10 @@ gem 'friendly_id', '~> 4.0.0'
 
 gem 'clearance', '~> 0.15.0'
 
+gem 'fastercsv'
+
+gem 'comma'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

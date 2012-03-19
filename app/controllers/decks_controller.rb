@@ -25,6 +25,13 @@ class DecksController < ApplicationController
     @user = User.find(current_user.id)
     @deck = @user.decks.find(params[:id])
     @cards = @deck.cards
+
+    respond_to do |format|
+      format.html
+      format.csv {
+        render :csv => @cards, :filename => @deck.slug
+      }
+    end
   end
 
   def destroy
