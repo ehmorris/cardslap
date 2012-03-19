@@ -16,7 +16,7 @@
       <% elsif defined? @deck %>
         <h1><%= image_tag 'cardslap-32.png', :class => 'logo' %> <a href="<%= decks_path %>">Cardslap</a> <span><%= @deck.name %></span></h1>
       <% else %>
-        <h1><%= image_tag 'cardslap-32.png', :class => 'logo' %> Cardslap</h1>
+        <h1><%= image_tag 'cardslap-32.png', :class => 'logo' %> <a href="<%= decks_path %>">Cardslap</a></h1>
       <% end %>
     </header>
     <% if flash[:notice] %>
@@ -26,7 +26,7 @@
     <% if signed_in? %>
       <%= yield %>
       <footer>
-        <p><%= current_user.email %> <%= link_to 'sign out', sign_out_path, :method => :delete %>, <%= link_to 'change password', edit_user_password_path(current_user) %></p>
+        <p><%= current_user.email %> <%= link_to 'sign out', sign_out_path, :method => :delete %>, <%= link_to 'account settings', profile_path %></p>
       </footer>
     <% else %>
       <%= yield %>

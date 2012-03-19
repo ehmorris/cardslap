@@ -1,5 +1,5 @@
 <aside class="sign-in">
-  <%= form_for :session, :url => session_path, :html => { :class => 'sign-in' } do |form| %>
+  <%= form_for :session, :url => session_path, :html => { :class => 'sign-in vertical' } do |form| %>
     <%= form.text_field :email, :type => 'email', :placeholder => 'email' %>
     <%= form.password_field :password, :placeholder => 'password' %>
     <%= form.submit "Sign in" %>

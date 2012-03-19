@@ -13,7 +13,7 @@ Cardslap::Application.routes.draw do
     :controller => 'clearance/sessions',
     :only       => [:new, :create, :destroy]
 
-  resources :users, :controller => 'clearance/users', :only => [:new, :create] do
+  resources :users, :controller => 'clearance/users', :only => [:new, :create, :show] do
     resource :password,
       :controller => 'clearance/passwords',
       :only       => [:create, :edit, :update]
@@ -22,4 +22,5 @@ Cardslap::Application.routes.draw do
   match 'sign_up'  => 'clearance/users#new', :as => 'sign_up'
   match 'sign_in'  => 'clearance/sessions#new', :as => 'sign_in'
   match 'sign_out' => 'clearance/sessions#destroy', :via => :delete, :as => 'sign_out'
+  match 'profile'  => 'clearance/users#edit'
 end

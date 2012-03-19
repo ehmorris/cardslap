@@ -17,7 +17,6 @@ class CardsController < ApplicationController
     @deck = current_user.decks.find(params[:deck_id])
     @card = @deck.cards.find(params[:id])
     @card.destroy
-
     redirect_to @deck
   end
 

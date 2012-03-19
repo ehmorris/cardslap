@@ -4,18 +4,6 @@ aside.sign-in {
 
   form.sign-in {
     margin-bottom: 1.5em;
-
-    input {
-      @include box-sizing(border-box);
-      display: block;
-      margin-bottom: .5em;
-      width: 100%;
-    }
-
-    input[type="submit"] {
-      @include button(shiny, lighten($dark, 20%));
-      font-size: 100%;
-    }
   }
 
   p {
