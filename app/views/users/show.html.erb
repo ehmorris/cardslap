@@ -1,5 +1,5 @@
 <aside class="update">
-  <%= form_for @user, :url => profile_path, :html => { :class => 'update vertical' } do |form| %>
+  <%= form_for @user, :html => { :class => 'update vertical' } do |form| %>
     <%= form.text_field :email, :type => 'email', :disabled => 'disabled' %>
     <%= form.password_field :password, :placeholder => 'new password' %>
     <%= form.submit "Update account" %>

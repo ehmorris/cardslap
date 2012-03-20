@@ -12,7 +12,13 @@ class Clearance::UsersController < ApplicationController
 
   def update
     @user = current_user
-    @user.update_attributes(params[:user])
+    if (@user.update_password(params[:user][:password]))
+      redirect_to account_path
+      flash[:notice] = 'Password updated'
+    else
+      redirect_to account_path
+      flash[:notice] = "Password can't be blank"
+    end
   end
 
   def new
