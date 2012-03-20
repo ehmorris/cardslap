@@ -6,7 +6,11 @@ class Clearance::PasswordsController < ApplicationController
   before_filter :forbid_non_existent_user, :only => [:edit, :update]
 
   def new
-    render :template => 'passwords/new'
+    if !signed_in?
+      render :template => 'passwords/new'
+    else
+      redirect_to account_path
+    end
   end
 
   def create
