@@ -147,13 +147,14 @@
 
     &.create-deck {
       background: $red;
+      border: 1px solid #fff;
       @include box-sizing(border-box);
       color: #fff;
       padding: 1em;
 
       textarea {
         @include box-sizing(border-box);
-        height: $card-size * .64;
+        height: $card-size * .63;
         margin: 0;
         width: 100%;
       }
@@ -186,8 +187,8 @@
       content: "";
       display: block;
       height: $card-size;
-      margin-bottom: -4px;
-      margin-right: -4px;
+      margin-bottom: 4px;
+      margin-right: -3px;
       position: absolute;
       right: 0;
       width: $card-size;
@@ -271,8 +272,8 @@
   content: "";
   display: block;
   height: $card-size;
-  margin-bottom: -4px;
-  margin-right: -4px;
+  margin-bottom: 4px;
+  margin-right: -3px;
   position: absolute;
   right: 0;
   width: $card-size;
