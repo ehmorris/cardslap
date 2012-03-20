@@ -1,0 +1,11 @@
+<ol>
+  <% @shares.all.each do |share| %>
+    <li><%= share.email %></li>
+  <% end %>
+</ol>
+
+<%= form_for [@deck, @share] do |form| %>
+  <%= form.text_field :email %>
+  <%= form.submit %>
+<% end %>
+

@@ -44,6 +44,7 @@ class DecksController < ApplicationController
   def edit
     @user = User.find(current_user.id)
     @deck = @user.decks.find(params[:id])
+    @shares = @deck.shares
   end
 
   def update

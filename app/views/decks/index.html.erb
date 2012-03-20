@@ -3,6 +3,7 @@
     <li>
       <%= link_to deck.name, deck %>
       <div class="actions">
+        <%= link_to 'share', new_deck_share_path(deck), :class => 'share' %>
         <%= link_to 'edit', edit_deck_path(deck), :class => 'edit' %>
         <%= link_to 'delete', deck, :method => :delete, :class => 'delete' %>
       </div>
