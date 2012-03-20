@@ -12,7 +12,7 @@ class Clearance::UsersController < ApplicationController
 
   def update
     @user = current_user
-    if (@user.update_password(params[:user][:password]))
+    if @user.update_password(params[:user][:password])
       redirect_to account_path
       flash[:notice] = 'Password updated'
     else
