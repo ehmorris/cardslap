@@ -187,7 +187,7 @@
     }
 
     // stack effect
-    &.deck::after {
+    &.deck::after, &.shared::after {
       background: lighten($gray, 20%);
       bottom: 0;
       content: "";
@@ -206,6 +206,10 @@
       content: " (shared)";
      }
     }
+  }
+
+  .clearfix {
+    margin-bottom: 3em;
   }
 }
 
