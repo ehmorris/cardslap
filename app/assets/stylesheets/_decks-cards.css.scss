@@ -187,7 +187,7 @@
     }
 
     // stack effect
-    &:not(:last-child)::after {
+    &.deck::after {
       background: lighten($gray, 20%);
       bottom: 0;
       content: "";
@@ -199,6 +199,12 @@
       right: 0;
       width: $card-size;
       z-index: -1;
+    }
+
+    &.shared {
+     > a::after {
+      content: " (shared)";
+     }
     }
   }
 }

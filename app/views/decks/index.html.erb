@@ -1,6 +1,6 @@
 <ul class="decks">
   <% @decks.each do |deck| %>
-    <li>
+    <li class="deck">
       <%= link_to deck.name, deck %>
       <div class="actions">
         <%= link_to 'share', new_deck_share_path(deck), :class => 'share' %>
@@ -9,6 +9,9 @@
       </div>
     </li>
   <% end %>
+  <li class="create-deck">
+    <%= render :partial => 'form', :locals => { :deck => @deck } %>
+  </li>
   <% @shared_decks.each do |shared_deck| %>
     <li class="shared">
       <%= link_to shared_deck.name, deck_share_path(shared_deck.id, shared_deck.share_id) %>
@@ -17,7 +20,4 @@
       </div>
     </li>
   <% end %>
-  <li class="create-deck">
-    <%= render :partial => 'form', :locals => { :deck => @deck } %>
-  </li>
 </ul>
