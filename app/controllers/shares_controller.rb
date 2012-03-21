@@ -1,6 +1,16 @@
 class SharesController < ApplicationController
   before_filter :authorize
 
+  def show
+    @share = Share.find_by_id(params[:id])
+    if @share.email == current_user.email
+      @deck = Deck.find_by_id(params[:deck_id])
+      @cards = @deck.cards
+    else
+      redirect_to decks_path
+    end
+  end
+
   def new
     @deck = current_user.decks.find(params[:deck_id])
     @shares = @deck.shares
@@ -21,9 +31,8 @@ class SharesController < ApplicationController
   end
 
   def destroy
-    @deck = current_user.decks.find(params[:deck_id])
-    @share = @deck.shares.find(params[:id])
+    @share = Share.find_by_id(params[:id])
     @share.destroy
-    redirect_to new_deck_share_path(@deck)
+    redirect_to :back
   end
 end

@@ -1,0 +1,24 @@
+<div id="card-size"></div>
+<ul class="cards shared" data-deck_id="<%= @deck.id %>">
+  <% @cards.each do |card| %>
+    <% if card.bin == 'main' %>
+      <li draggable="true" data-id="<%= card.id %>">
+        <%= render card %>
+      </li>
+      <li class="reorder-target"></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<div id="bin" class="shared">
+  <h2>Memorized Pile</h2>
+  <% @cards.each do |card| %>
+    <% if card.bin == 'bin' %>
+      <li draggable="true" data-id="<%= card.id %>">
+        <%= render card %>
+      </li>
+    <% end %>
+  <% end %>
+</div>
+
+<p class="export"><a class="export" href="<%= request.url%>.csv">export deck</a></p>

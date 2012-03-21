@@ -3,7 +3,7 @@ Cardslap::Application.routes.draw do
 
   resources :decks do
     resources :cards
-    resources :shares, :only => [:new, :create, :destroy]
+    resources :shares, :only => [:new, :create, :destroy, :show]
   end
 
   resources :passwords,
