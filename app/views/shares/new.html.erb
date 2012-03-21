@@ -1,6 +1,6 @@
 <ol>
   <% @shares.all.each do |share| %>
-    <li><%= share.email %></li>
+    <li><%= share.email %> <%= link_to 'delete', [@deck, share], :method => :delete %></li>
   <% end %>
 </ol>
 
