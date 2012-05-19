@@ -94,7 +94,10 @@
 
         img {
           @include transition;
-          width: $card-size;
+          min-width: $card-size;
+          min-height: $card-size;
+          width: 100%
+          height: auto;
         }
       }
 
