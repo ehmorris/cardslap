@@ -3,7 +3,10 @@ class DecksController < ApplicationController
 
   def index
     @user = current_user
+
     @deck = Deck.new
+    @decks = @user.decks
+
     @shares = Share.find_all_by_email(@user.email)
     @shared_decks = []
     @shares.each do |share|
@@ -11,7 +14,6 @@ class DecksController < ApplicationController
       @shared_deck[:share_id] = share.id
       @shared_decks.push(@shared_deck);
     end
-    @decks = @user.decks
   end
 
   def create

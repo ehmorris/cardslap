@@ -22,7 +22,7 @@ class SharesController < ApplicationController
     if @deck.shares.count < 5
       @share = @deck.shares.build(params[:share])
       @share.save
-      ::ClearanceMailer.new_share(current_user, params[:share][:email], @deck).deliver
+      ::ClearanceMailer.new_share(current_user, params[:share][:email], @deck, @share).deliver
       redirect_to new_deck_share_path(@deck)
     else
       redirect_to new_deck_share_path(@deck)

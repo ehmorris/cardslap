@@ -22,4 +22,7 @@
   <% end %>
 </div>
 
-<p class="export"><a class="export" href="<%= request.url%>.csv">export deck</a></p>
+<ul class="exportshare">
+  <li><a class="export" href="<%= request.url %>.csv">export deck</a></li>
+  <li><%= link_to 'share deck', new_deck_share_path(@deck) %></li>
+</ul>

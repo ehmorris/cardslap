@@ -2,6 +2,4 @@ You've been cardslapped!
 
 <%= @user.email %> has shared their deck, "<%= @deck.name %>" with you on Cardslap.
 
-Access it here:
-
-http://cardslap.heroku.com
+<%= link_to 'Access it here', deck_share_path(@deck.id, @share.id, :anchor => @invitee) %>

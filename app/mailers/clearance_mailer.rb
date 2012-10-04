@@ -8,13 +8,15 @@ class ClearanceMailer < ActionMailer::Base
                            :default => "Change your password")
   end
 
-  def new_share(user, invitee, deck)
-    @user = user
-    @deck = deck
+  def new_share(user, invitee, deck, share)
+    @user    = user
+    @invitee = invitee
+    @deck    = deck
+    @share   = share
     mail :from    => Clearance.configuration.mailer_sender,
          :to      => invitee,
          :subject => I18n.t(:new_share,
                            :scope   => [:clearance, :models, :clearance_mailer],
-                           :default => "Someone has shared a cardslap with you")
+                           :default => "You've been cardslapped!")
   end
 end
