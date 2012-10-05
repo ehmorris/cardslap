@@ -1,5 +1,7 @@
 You've been cardslapped!
 
+
 <%= @user.email %> has shared their deck, "<%= @deck.name %>" with you on Cardslap.
 
-<%= link_to 'Access it here', deck_share_url(@deck.id, @share.id, :anchor => @invitee) %>
+
+<%= link_to 'Access it here', url_for(:controller => 'shares', :action => 'show', :deck_id => @deck.id, :id => @share.id, :source => 'email', :email => @invitee) %>

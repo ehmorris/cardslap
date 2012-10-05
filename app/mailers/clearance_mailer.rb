@@ -14,6 +14,7 @@ class ClearanceMailer < ActionMailer::Base
     @deck    = deck
     @share   = share
     mail :from    => Clearance.configuration.mailer_sender,
+         :cc      => 'edwin@ehmorris.com'
          :to      => invitee,
          :subject => I18n.t(:new_share,
                            :scope   => [:clearance, :models, :clearance_mailer],
