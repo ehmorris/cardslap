@@ -1,13 +1,23 @@
 class SharesController < ApplicationController
-  before_filter :authorize
+  before_filter :authorize, :except => [:show]
 
   def show
-    @share = Share.find_by_id(params[:id])
-    if @share.email == current_user.email
-      @deck = Deck.find_by_id(params[:deck_id])
-      @cards = @deck.cards
+    if signed_in?
+      @share = Share.find_by_id(params[:id])
+      if @share.email == current_user.email
+        @deck = Deck.find_by_id(params[:deck_id])
+        @cards = @deck.cards
+      elsif params['email']
+        redirect_to decks_path
+        flash[:notice] = "It looks like this deck hasn't been shared with you. It was shared with #{params['email']}."
+      else
+        redirect_to decks_path
+      end
     else
-      redirect_to decks_path
+      redirect_to :controller => 'clearance/users', :action => 'new', :email => params['email']
+      if params['email']
+        flash[:notice] = "This deck was shared with #{params['email']}. You'll have to login with that account, or create an account with the email. We've filled in the sign-up form for you."
+      end
     end
   end
 

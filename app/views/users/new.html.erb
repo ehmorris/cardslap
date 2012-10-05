@@ -1,6 +1,6 @@
 <aside class="sign-up">
   <%= form_for @user, :html => { :class => 'sign-up vertical' } do |form| %>
-    <%= form.text_field :email, :type => 'email', :placeholder => 'email' %>
+    <%= form.text_field :email, :type => 'email', :placeholder => 'email', :value => params['email'] %>
     <%= form.password_field :password, :placeholder => 'password' %>
     <%= form.submit 'Get started' %>
   <% end %>
