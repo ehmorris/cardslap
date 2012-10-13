@@ -37,9 +37,10 @@ header {
 div.notice {
   border: none;
   @include border-radius(0);
-  display: inline-block;
+  display: block;
   margin-bottom: 2em;
-  padding: 0;
+  padding: 1em;
+  text-align: center;
 }
 
 footer {
