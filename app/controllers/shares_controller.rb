@@ -29,12 +29,18 @@ class SharesController < ApplicationController
 
   def create
     @deck = current_user.decks.find(params[:deck_id])
+    @share = @deck.shares.build(params[:share])
+    email_errors = ValidatesEmailFormatOf::validate_email_format @share.email
     if @deck.shares.count < 5
-      @share = @deck.shares.build(params[:share])
-      @share.save
-      ::ClearanceMailer.new_share(current_user, params[:share][:email], @deck, @share).deliver
-      flash[:notice] = 'We sent them a link and cc\'d you'
-      redirect_to new_deck_share_path(@deck)
+      if !Share.find_by_email_and_deck_id @share.email, @deck.id and email_errors.nil?
+        @share.save
+        ::ClearanceMailer.new_share(current_user, @share.email, @deck, @share).deliver
+        redirect_to new_deck_share_path(@deck)
+        flash[:notice] = "We sent #{@share.email} a link and cc'd you"
+      else
+        redirect_to new_deck_share_path(@deck)
+        flash[:notice] = "The email #{@share.email} is invalid"
+      end
     else
       redirect_to new_deck_share_path(@deck)
       flash[:notice] = 'Can only share a deck with up to 5 people'

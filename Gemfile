@@ -24,6 +24,8 @@ gem 'fastercsv'
 
 gem 'comma'
 
+gem 'validates_email_format_of'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
