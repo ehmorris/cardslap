@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.3'
+gem 'rails', '3.2.9'
 
 group :development do
   gem 'sqlite3'
@@ -11,8 +11,6 @@ group :production do
 
   gem 'newrelic_rpm'
 end
-
-gem 'bourbon'
 
 gem 'flutie'
 
@@ -29,9 +27,11 @@ gem 'validates_email_format_of'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.1.5'
-  gem 'coffee-rails', '~> 3.1.1'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'sass-rails', '~> 3.2.5'
+  gem 'coffee-rails', '~> 3.2.2'
+  gem 'uglifier'
+  gem 'bourbon', '~> 2.1.2'
+  gem 'neat'
 end
 
 gem 'jquery-rails'
