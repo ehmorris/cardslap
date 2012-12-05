@@ -1,0 +1,12 @@
+form.new_share {
+  @include media($smallandtouch) {
+    input[type="text"], input[type="email"] {
+      width: 100%;
+      margin: 0 0 .5em 0;
+    }
+
+    input[type="submit"] {
+      margin-bottom: 1em;
+    }
+  }
+}

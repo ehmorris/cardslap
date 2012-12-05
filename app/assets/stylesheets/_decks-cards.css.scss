@@ -13,16 +13,6 @@
     -webkit-perspective: 600px;
     width: $card-size;
 
-    &.reorder-target {
-      margin: 0;
-      @include transition;
-      width: 1em;
-
-      &.over {
-        width: 3em;
-      }
-    }
-
     a.create-link {
       background: $red;
       bottom: 0;
@@ -126,6 +116,20 @@
       }
     }
 
+    &.reorder-target {
+      margin: 0;
+      @include transition;
+      width: 1em;
+
+      &.over {
+        width: 3em;
+      }
+
+      @include media($smallandtouch) {
+        display: none;
+      }
+    }
+
     .front {
       @include transform(rotate3d(45,45,0,0deg));
       z-index: 1;
@@ -145,6 +149,13 @@
     &.flip .back {
       z-index: 2;
       @include transform(rotate3d(45,45,0,0deg));
+    }
+
+    @include media($smallandtouch) {
+      height: 132px !important;
+      margin-bottom: 8px;
+      margin-right: 8px;
+      width: 132px !important;
     }
   }
 
@@ -283,6 +294,19 @@
       width: $card-size / 1.5 !important;
     }
   }
+
+  @include media($smallandtouch) {
+    border: 0;
+    opacity: .6;
+    padding: 0;
+    width: 100%;
+
+    li {
+      height: 132px !important;
+      margin-right: 8px;
+      width: 132px !important;
+    }
+  }
 }
 
 .new_card textarea, .edit_card textarea, .edit_deck textarea {
@@ -307,6 +331,7 @@
   }
 
   @include media($smallandtouch) {
+    border-radius: 0;
     height: 90px;
     margin: 0;
     width: 100%;
