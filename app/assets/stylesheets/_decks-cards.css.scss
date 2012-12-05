@@ -156,6 +156,12 @@
       margin-bottom: 8px;
       margin-right: 8px;
       width: 132px !important;
+
+      .front, .back {
+        &.image img {
+          width: 132px;
+        }
+      }
     }
   }
 
