@@ -299,6 +299,16 @@
     background: darken($gray, 10%);
     outline: none;
   }
+
+  @include media($smallandtouch) {
+    height: 54px;
+    margin: 0;
+    width: 100%;
+
+    &#card_back {
+      margin-bottom: 1em;
+    }
+  }
 }
 
 .edit_deck .textarea {
@@ -307,26 +317,34 @@
   margin: 0 1em 1em 0;
   overflow: visible;
   position: relative;
-}
 
-.edit_deck textarea {
-  margin: 0;
-  border: 1px solid #fff;
-  float: none;
-}
+  &::after {
+    background: lighten($gray, 20%);
+    bottom: 0;
+    content: "";
+    display: block;
+    height: $card-size;
+    margin-bottom: 4px;
+    margin-right: -3px;
+    position: absolute;
+    right: 0;
+    width: $card-size;
+    z-index: -1;
 
-.edit_deck .textarea::after {
-  background: lighten($gray, 20%);
-  bottom: 0;
-  content: "";
-  display: block;
-  height: $card-size;
-  margin-bottom: 4px;
-  margin-right: -3px;
-  position: absolute;
-  right: 0;
-  width: $card-size;
-  z-index: -1;
+    @include media($smallandtouch) {
+      display: none;
+    }
+  }
+
+  textarea {
+    margin: 0;
+    border: 1px solid #fff;
+    float: none;
+
+    @include media($smallandtouch) {
+      border: 0;
+    }
+  }
 }
 
 .exportshare {
