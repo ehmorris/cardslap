@@ -12,10 +12,8 @@
 <body>
   <div class="wrapper">
     <header>
-      <% if defined? @card %>
+      <% if defined? @card or defined? @deck %>
         <h1><%= image_tag 'cardslap-32.png', :class => 'logo' %> <a href="<%= root_path %>">Cardslap</a> <span><%= link_to @deck.name, deck_path(@deck) %></span></h1>
-      <% elsif defined? @deck %>
-        <h1><%= image_tag 'cardslap-32.png', :class => 'logo' %> <a href="<%= root_path %>">Cardslap</a> <span><%= @deck.name %></span></h1>
       <% else %>
         <h1><%= image_tag 'cardslap-32.png', :class => 'logo' %> <a href="<%= root_path %>">Cardslap</a></h1>
       <% end %>

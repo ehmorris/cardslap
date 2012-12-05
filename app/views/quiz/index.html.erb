@@ -1,6 +1,4 @@
-<div id="card-size"></div>
-<%= link_to 'Enter quiz mode', deck_quiz_index_path(@deck) %>
-<ul class="cards" data-deck_id="<%= @deck.id %>">
+<ul class="cards-quiz" data-deck_id="<%= @deck.id %>">
   <% @cards.each do |card| %>
     <% if card.bin == 'main' %>
       <li draggable="true" data-id="<%= card.id %>">
@@ -9,7 +7,6 @@
       <li class="reorder-target"></li>
     <% end %>
   <% end %>
-  <li><%= link_to 'Create card', [:new, @deck, :card], :class => "create-link" %></li>
 </ul>
 
 <div id="bin">
@@ -22,8 +19,3 @@
     <% end %>
   <% end %>
 </div>
-
-<ul class="exportshare">
-  <li><a class="export" href="<%= request.url %>.csv">export deck</a></li>
-  <li><%= link_to 'share deck', new_deck_share_path(@deck) %></li>
-</ul>
