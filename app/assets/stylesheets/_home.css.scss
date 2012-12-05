@@ -4,10 +4,6 @@ figure {
   position: relative;
   width: 65%;
 
-  @include media($smallandtouch) {
-    width: 100%;
-  }
-
   .marketing-image {
     @include border-radius(5px);
     @include box-shadow(0 10px 25px 0 rgba(0,0,0,.3));
@@ -42,6 +38,18 @@ figure {
       text-decoration: none;
     }
   }
+
+  @include media($smallandtouch) {
+    width: 100%;
+
+    figcaption {
+      background: transparent;
+      color: #000;
+      font-size: 120%;
+      padding: 1em 0 0 0;
+      position: static;
+    }
+  }
 }
 
 figure:last-child {
@@ -65,5 +73,19 @@ aside.sign-up {
   p {
     font-size: 80%;
     margin-bottom: .5em;
+  }
+
+  @include media($smallandtouch) {
+    margin-bottom: 2em;
+    position: static;
+    width: 100%;
+
+    form.sign-up {
+      margin-bottom: 1em;
+
+      input[type="submit"] {
+        margin-bottom: 0;
+      }
+    }
   }
 }

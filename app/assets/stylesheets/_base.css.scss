@@ -11,7 +11,11 @@ ul {
 
 .wrapper {
   margin: auto;
-  padding: 0 4em 0 4em;
+  padding: 0 4em;
+
+  @include media($smallandtouch) {
+    padding: 0 20px;
+  }
 }
 
 header {
