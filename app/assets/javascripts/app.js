@@ -1,26 +1,3 @@
-$('.cards li').live('click', function() {
-  $(this).toggleClass('flip');
-});
-
-$('#bin li').live('click', function() {
-  $(this).toggleClass('flip');
-});
-
-// flip each card on click and hold for any card
-$('.cards li').live('longclick', function() {
-  $('.cards li').each(function() {
-    $(this).toggleClass('flip');
-  });
-});
-
-// flip each card in memorized pile on click and hold for any card
-$('#bin li').live('longclick', function() {
-  $('#bin li').each(function() {
-    $(this).toggleClass('flip');
-  });
-});
-
-
 $(function() {
   $("#card-size").slider({
     range: "min",
@@ -36,5 +13,13 @@ $(function() {
         }
       });
     }
+  });
+
+  $('.cards, #bin').on('click tapone', 'li', function() {
+    $(this).toggleClass('flip');
+  });
+
+  $('.cards, #bin').on('longclick', 'li', function() {
+    $(this).toggleClass('flip').siblings().toggleClass('flip');
   });
 });

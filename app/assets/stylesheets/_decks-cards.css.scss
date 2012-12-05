@@ -118,6 +118,12 @@
       &:hover .actions {
         display: block;
       }
+
+      @include media($smallandtouch) {
+        &:hover .actions {
+          display: none;
+        }
+      }
     }
 
     .front {
@@ -301,7 +307,7 @@
   }
 
   @include media($smallandtouch) {
-    height: 54px;
+    height: 90px;
     margin: 0;
     width: 100%;
 
@@ -330,18 +336,22 @@
     right: 0;
     width: $card-size;
     z-index: -1;
-
-    @include media($smallandtouch) {
-      display: none;
-    }
   }
 
   textarea {
     margin: 0;
     border: 1px solid #fff;
     float: none;
+  }
 
-    @include media($smallandtouch) {
+  @include media($smallandtouch) {
+    margin: 0 0 1em 0;
+
+    &::after {
+      display: none;
+    }
+
+    textarea {
       border: 0;
     }
   }

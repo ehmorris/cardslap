@@ -6,6 +6,7 @@
 //
 //= require jquery_ujs
 //= require jquery.longclick-min.js
+//= require jgestures.min.js
 //= require h5utils.js
 //= require dragdrop.js
 //= require app.js
