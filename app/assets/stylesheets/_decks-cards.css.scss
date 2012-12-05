@@ -57,6 +57,19 @@
         &:hover {
           opacity: 1;
         }
+
+        @include media($smallandtouch) {
+          color: #000;
+          opacity: 1;
+        }
+      }
+
+      @include media($smallandtouch) {
+        background: none;
+        border: 0;
+        display: block;
+        padding: .25em 1em 0 1em;
+        position: static;
       }
     }
   }
@@ -163,6 +176,10 @@
         height: $card-size * .63;
         margin: 0;
         width: 100%;
+
+        @include media($smallandtouch) {
+          height: 3em;
+        }
       }
 
       input {
@@ -202,9 +219,25 @@
     }
 
     &.shared {
-     > a::after {
-      content: " (shared)";
-     }
+      > a::after {
+        content: " (shared)";
+      }
+    }
+
+    @include media($smallandtouch) {
+      float: none;
+      height: auto;
+      width: 100%;
+
+      > a {
+        border: 0;
+        display: block;
+        position: static;
+      }
+
+      &.deck::after, &.shared::after {
+        display: none;
+      }
     }
   }
 
