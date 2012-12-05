@@ -1,0 +1,84 @@
+.cards-quiz {
+  li {
+    background: #ccc;
+    @include box-sizing(content-box);
+    display: none;
+    height: 400px;
+    -moz-perspective: 600px;
+    overflow: hidden;
+    padding: 2em 0;
+    @include position(absolute, 0 0px 0 0px);
+    @include transition;
+    -webkit-perspective: 600px;
+
+    &:first-child {
+      display: block;
+    }
+
+    .front, .back {
+      background: #eee;
+      @include box-sizing(border-box);
+      display: block;
+      height: 400px;
+      left: 50%;
+      margin: auto;
+      margin-left: -310px;
+      -moz-backface-visibility: hidden;
+      -moz-transform-style: preserve-3d;
+      -moz-transition: all .25s ease-in-out;
+      overflow: auto;
+      padding: 2em;
+      position: absolute;
+      -webkit-backface-visibility: hidden;
+      -webkit-transform-style: preserve-3d;
+      -webkit-transition: all .25s ease-in-out;
+      width: 300px;
+
+      pre.text {
+        font: inherit;
+        line-height: inherit;
+        margin: 0;
+      }
+
+      .actions {
+        display: none;
+      }
+    }
+
+    .front {
+      @include transform(rotate3d(45,45,0,0deg));
+      z-index: 1;
+    }
+
+    .back {
+      background: lighten($gray, 40%);
+      color: #000;
+      @include transform(rotate3d(45,45,0,-180deg));
+      z-index: 0;
+    }
+
+    &.flip .front {
+      @include transform(rotate3d(45,45,0,180deg));
+    }
+
+    &.flip .back {
+      z-index: 2;
+      @include transform(rotate3d(45,45,0,0deg));
+    }
+
+    form {
+      margin-left: 10px;
+      @include position(absolute, 0 0 0 50%);
+
+      textarea {
+        height: 363px;
+        margin: 0 0 .5em 0;
+        width: 300px;
+      }
+    }
+  }
+}
+
+#bin.quiz {
+  display: none;
+}

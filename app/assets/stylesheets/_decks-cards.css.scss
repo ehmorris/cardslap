@@ -13,19 +13,27 @@
     -webkit-perspective: 600px;
     width: $card-size;
 
-    a.create-link {
-      background: $red;
-      bottom: 0;
-      color: #fff;
-      display: block;
-      left: 0;
-      padding: 1em;
-      position: absolute;
-      right: 0;
-      top: 0;
+    &.card-button {
+      margin-right: 1em;
 
-      &:active {
-        background: darken($red, 10%);
+      &:last-child {
+        margin-right: 0;
+      }
+
+      a {
+        background: $red;
+        bottom: 0;
+        color: #fff;
+        display: block;
+        left: 0;
+        padding: 1em;
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        &:active {
+          background: darken($red, 10%);
+        }
       }
     }
 

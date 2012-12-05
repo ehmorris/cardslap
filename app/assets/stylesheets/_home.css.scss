@@ -35,6 +35,8 @@ figure {
 
     a, a:link, a:hover, a:visited, a:active, a:focus {
       @include button('shiny');
+      padding-top: 4px;
+      padding-bottom: 4px;
       text-decoration: none;
     }
   }

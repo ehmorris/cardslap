@@ -1,5 +1,4 @@
 <div id="card-size"></div>
-<%= link_to 'Enter quiz mode', deck_quiz_index_path(@deck) %>
 <ul class="cards" data-deck_id="<%= @deck.id %>">
   <% @cards.each do |card| %>
     <% if card.bin == 'main' %>
@@ -9,7 +8,8 @@
       <li class="reorder-target"></li>
     <% end %>
   <% end %>
-  <li><%= link_to 'Create card', [:new, @deck, :card], :class => "create-link" %></li>
+  <li class="card-button"><%= link_to 'Create card', [:new, @deck, :card], :class => "create-link" %></li>
+  <li class="card-button"><%= link_to 'Enter quiz mode', deck_quiz_index_path(@deck), :class => "enter-quiz" %></li>
 </ul>
 
 <div id="bin">
