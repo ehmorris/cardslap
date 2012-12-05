@@ -11,4 +11,16 @@ aside.sign-in {
     font-size: 80%;
     margin-bottom: .5em;
   }
+
+  @include media($smallandtouch) {
+    width: 100%;
+
+    form.sign-in {
+      margin-bottom: 1em;
+
+      input[type="submit"] {
+        margin-bottom: 0;
+      }
+    }
+  }
 }
