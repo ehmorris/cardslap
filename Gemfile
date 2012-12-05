@@ -14,7 +14,7 @@ end
 
 gem 'flutie'
 
-gem 'friendly_id', '~> 4.0.0'
+gem 'friendly_id', '~> 4.0.9'
 
 gem 'clearance', '~> 0.15.0'
 
