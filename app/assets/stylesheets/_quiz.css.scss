@@ -1,9 +1,11 @@
 .cards-quiz {
+  height: 400px;
+
   li {
     background: #ccc;
     @include box-sizing(content-box);
     display: none;
-    height: 400px;
+    height: 300px;
     -moz-perspective: 600px;
     overflow: hidden;
     padding: 2em 0;
@@ -19,7 +21,7 @@
       background: #eee;
       @include box-sizing(border-box);
       display: block;
-      height: 400px;
+      height: 300px;
       left: 50%;
       margin: auto;
       margin-left: -310px;
@@ -71,7 +73,7 @@
       @include position(absolute, 0 0 0 50%);
 
       textarea {
-        height: 363px;
+        height: 263px;
         margin: 0 0 .5em 0;
         width: 300px;
       }
@@ -79,6 +81,3 @@
   }
 }
 
-#bin.quiz {
-  display: none;
-}

@@ -1,7 +1,7 @@
 <ul class="cards-quiz" data-deck_id="<%= @deck.id %>">
   <% @cards.each do |card| %>
     <% if card.bin == 'main' %>
-      <li draggable="true" data-id="<%= card.id %>">
+      <li data-id="<%= card.id %>">
         <%= render card %>
         <form>
           <textarea placeholder="What's on the back side?"></textarea>
