@@ -111,6 +111,54 @@
       }
     }
   }
+
+  @include media($smallandtouch) {
+    height: auto;
+
+    li {
+      background: none;
+      height: auto;
+      padding: 0;
+      position: static;
+
+      .front, .back {
+        @include box-shadow(none);
+        height: 200px;
+        margin: 0;
+        padding: 1em;
+        position: static;
+        width: 100%;
+      }
+
+      .back {
+        height: 0;
+        padding: 0;
+      }
+
+      &.flip {
+        .front {
+          height: 0;
+          padding: 0;
+        }
+
+        .back {
+          height: 200px;
+          padding: 1em;
+        }
+      }
+
+      form {
+        margin: 1em 0 0 0;
+        position: static;
+        width: 100%;
+
+        textarea {
+          height: 4em;
+          width: 100%;
+        }
+      }
+    }
+  }
 }
 
 #bin.quiz {
