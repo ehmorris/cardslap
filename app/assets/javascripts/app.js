@@ -43,6 +43,9 @@ $(function() {
         url: "/decks/"+deck_id+"/cards/"+card_id,
         data: {_method: 'PUT', card: {bin: 'bin'}}
       });
+
+      var html = $(this).parents('li').clone().wrap('<div>').parent().html();
+      $('#bin').html($('#bin').html() + html);
     }
 
     // show next if it exists, otherwise show end message

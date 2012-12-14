@@ -113,3 +113,16 @@
   }
 }
 
+#bin.quiz {
+  li {
+    .front, .back {
+      .actions {
+        display: none;
+      }
+    }
+
+    form {
+      display: none;
+    }
+  }
+}
