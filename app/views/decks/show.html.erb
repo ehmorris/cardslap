@@ -8,6 +8,7 @@
       <li class="reorder-target"></li>
     <% end %>
   <% end %>
+  <li class="reorder-target last"></li>
   <li class="card-button"><%= link_to 'Create card', [:new, @deck, :card], :class => "create-link" %></li>
   <li class="card-button"><%= link_to 'Enter quiz mode', deck_quiz_index_path(@deck), :class => "enter-quiz" %></li>
 </ul>
