@@ -38,6 +38,10 @@ header {
   }
 }
 
+figure {
+  margin: 0;
+}
+
 div.notice {
   border: none;
   @include border-radius(0);

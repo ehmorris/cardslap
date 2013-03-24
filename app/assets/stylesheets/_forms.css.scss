@@ -4,6 +4,11 @@ textarea {
   resize: none;
 }
 
+input {
+  font-size: 100%;
+  padding: 4px;
+}
+
 input[type="submit"] {
   @include button($dark);
   font-family: $helvetica;
