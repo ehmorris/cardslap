@@ -129,6 +129,14 @@
       @include transition;
       width: 1em;
 
+      &.last {
+        display: none;
+
+        &:first-child {
+          display: block;
+        }
+      }
+
       &.over {
         width: 3em;
       }

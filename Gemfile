@@ -12,8 +12,6 @@ group :production do
   gem 'newrelic_rpm'
 end
 
-gem 'flutie'
-
 gem 'friendly_id', '~> 4.0.9'
 
 gem 'clearance', '~> 0.15.0'
