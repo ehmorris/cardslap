@@ -1,4 +1,4 @@
-.animation-slide-entry {
+%animation-slide-entry {
   @include animation(slide-entry 0.2s $ease-out-sine);
   @include animation-fill-mode(both);
 }
@@ -16,7 +16,7 @@
         @keyframes slide-entry { @include slide-entry; }
 
 
-.animation-fade-in {
+%animation-fade-in {
   @include animation(fade-in .3s $ease-out-sine);
   @include animation-fill-mode(both);
 }
@@ -37,7 +37,7 @@
    @-moz-keyframes fade-in { @include fade-in; }
         @keyframes fade-in { @include fade-in; }
 
-.animation-caption-entry {
+%animation-caption-entry {
   @include animation(caption-entry 1.0s $ease-out-sine);
 }
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120320204710) do
+ActiveRecord::Schema.define(:version => 20130324044031) do
 
   create_table "cards", :force => true do |t|
     t.text     "front"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(:version => 20120320204710) do
     t.integer  "deck_id"
     t.integer  "sort_number"
     t.string   "bin",         :default => "main"
+    t.integer  "width"
+    t.integer  "height"
   end
 
   create_table "decks", :force => true do |t|

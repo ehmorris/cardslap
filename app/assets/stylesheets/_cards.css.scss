@@ -1,0 +1,218 @@
+.cards, #bin {
+  @extend %animation-slide-entry;
+  @extend %cards-bincards-decks-shared;
+  overflow: auto;
+
+  &.shared li {
+    &:hover .actions {
+      display: none;
+    }
+  }
+
+  li {
+    overflow: visible;
+
+    &[draggable=true] {
+      min-height: $card-size;
+      min-width: $card-size;
+    }
+
+    .front, .back {
+      background: $gray;
+      bottom: 0;
+      color: #fff;
+      left: 0;
+      overflow: hidden;
+      padding: 1em;
+      position: absolute;
+      right: 0;
+      top: 0;
+      -webkit-backface-visibility: hidden;
+      -webkit-transform-style: preserve-3d;
+      -webkit-transition: all .25s ease-in-out;
+      -moz-backface-visibility: hidden;
+      -moz-transform-style: preserve-3d;
+      -moz-transition: all .25s ease-in-out;
+
+      pre.text {
+        font: inherit;
+        line-height: inherit;
+        margin: inherit;
+      }
+
+      &.image {
+        padding: 0;
+
+        img {
+          @include transition;
+          width: 100%;
+        }
+      }
+
+      .actions {
+        display: none;
+      }
+
+      &:hover .actions {
+        display: block;
+      }
+
+      @include media($smallandtouch) {
+        &:hover .actions {
+          display: none;
+        }
+      }
+    }
+
+    .front {
+      @include transform(rotate3d(45,45,0,0deg));
+      z-index: 1;
+    }
+
+    .back {
+      background: lighten($gray, 40%);
+      color: #000;
+      @include transform(rotate3d(45,45,0,-180deg));
+      z-index: 0;
+    }
+
+    &.flip {
+      .front {
+        @include transform(rotate3d(45,45,0,180deg));
+      }
+
+      .back {
+        z-index: 2;
+        @include transform(rotate3d(45,45,0,0deg));
+      }
+    }
+
+    .ui-resizable-handle {
+      position: absolute;
+
+      &.ui-resizable-e {
+        bottom: 0;
+        cursor: e-resize;
+        right: 0;
+        top: 0;
+        width: 20px;
+      }
+
+      &.ui-resizable-s {
+        bottom: 0;
+        cursor: s-resize;
+        height: 20px;
+        left: 0;
+        right: 0;
+      }
+
+      &.ui-resizable-se {
+        bottom: 0;
+        cursor: se-resize;
+        height: 20px;
+        right: 0;
+        width: 20px;
+      }
+    }
+
+    @include media($smallandtouch) {
+      height: 132px !important;
+      margin-bottom: 8px;
+      margin-right: 8px !important;
+      width: 132px !important;
+    }
+  }
+
+  li.reorder-target {
+    margin: 0;
+    max-width: 25px;
+    min-height: $card-size;
+    min-width: 25px;
+    @include transition;
+
+    &.last {
+      display: none;
+
+      &:first-child {
+        display: block;
+      }
+    }
+
+    &.over {
+      width: 45px;
+      max-width: 45px;
+    }
+
+    @include media($smallandtouch) {
+      display: none;
+    }
+  }
+
+  li.card-button {
+    margin-right: 25px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    a {
+      background: $red;
+      bottom: 0;
+      color: #fff;
+      display: block;
+      left: 0;
+      padding: 1em;
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      &:active {
+        background: darken($red, 10%);
+      }
+    }
+  }
+}
+
+#bin {
+  border: .15em dashed lighten($gray, 20%);
+  @include box-sizing(border-box);
+  clear: both;
+  display: inline-block;
+  margin-top: 1em;
+  min-height: $card-size / 2;
+  min-width: $card-size;
+  padding: 1em 0 0 1em;
+  @include transition;
+
+  &.over {
+    border: .15em solid yellow;
+  }
+
+  h2 {
+    color: lighten($gray, 10%);
+    font-size: 100%;
+    font-weight: normal;
+    margin-bottom: 1em;
+  }
+
+  li {
+    height: $card-size / 1.5 !important;
+    margin-right: 1em;
+    min-height: auto !important;
+    min-width: auto !important;
+    width: $card-size / 1.5 !important;
+  }
+
+  @include media($smallandtouch) {
+    border: 0;
+    opacity: .6;
+    padding: 0;
+    width: 100%;
+
+    li {
+      height: 132px !important;
+      margin-right: 8px;
+      width: 132px !important;
+    }
+  }
+}

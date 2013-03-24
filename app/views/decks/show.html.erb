@@ -1,11 +1,10 @@
-<div id="card-size"></div>
 <ul class="cards" data-deck_id="<%= @deck.id %>">
   <% @cards.each do |card| %>
     <% if card.bin == 'main' %>
-      <li draggable="true" data-id="<%= card.id %>">
+      <li draggable="true" data-id="<%= card.id %>" style="width: <%= card.width %>px; height: <%= card.height %>px;">
         <%= render card %>
       </li>
-      <li class="reorder-target"></li>
+      <li class="reorder-target" style="height: <%= card.height %>px;"></li>
     <% end %>
   <% end %>
   <li class="reorder-target last"></li>

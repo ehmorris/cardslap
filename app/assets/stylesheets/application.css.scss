@@ -2,14 +2,14 @@
 @import 'neat';
 
 @import 'base-variables';
+@import 'base-extends';
 @import 'base-animations';
 @import 'base';
 @import 'forms';
-@import 'decks-cards';
+@import 'cards';
+@import 'decks';
 @import 'home';
 @import 'signin';
 @import 'account';
-@import 'jquery-ui';
-@import 'slider';
 @import 'shares';
 @import 'quiz';

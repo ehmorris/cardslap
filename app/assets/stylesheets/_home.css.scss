@@ -11,7 +11,7 @@ figure {
   }
 
   figcaption {
-    @extend .animation-caption-entry;
+    @extend %animation-caption-entry;
     background: rgba(0,0,0,.5);
     bottom: 2em;
     @include box-sizing(border-box);

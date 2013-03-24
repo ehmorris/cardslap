@@ -1,0 +1,98 @@
+.decks {
+  @extend %cards-bincards-decks-shared;
+
+  li {
+    @extend %animation-fade-in;
+    margin-right: 1em;
+    overflow: visible;
+
+    $t: 0.1s;
+    $delay: $t;
+    @for $child from 1 through 20 {
+      &:nth-child(#{$child}) {
+        @include animation-delay($delay);
+      }
+      $delay: $delay + $t;
+    }
+
+    &.create-deck {
+      background: $red;
+      border: 1px solid #fff;
+      @include box-sizing(border-box);
+      color: #fff;
+      padding: 1em;
+
+      textarea {
+        @include box-sizing(border-box);
+        height: $card-size * .63;
+        margin: 0;
+        width: 100%;
+
+        @include media($smallandtouch) {
+          height: 3em;
+        }
+      }
+
+      input {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        height: $card-size * .2;
+        width: 100%;
+      }
+    }
+
+    > a {
+      background: $gray;
+      border: 1px solid #fff;
+      bottom: 0;
+      @include box-sizing(border-box);
+      color: #fff;
+      left: 0;
+      padding: 1em;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    // stack effect
+    &.deck::after, &.shared::after {
+      background: lighten($gray, 20%);
+      bottom: 0;
+      content: "";
+      display: block;
+      height: $card-size;
+      margin-bottom: 4px;
+      margin-right: -3px;
+      position: absolute;
+      right: 0;
+      width: $card-size;
+      z-index: -1;
+    }
+
+    &.shared {
+      > a::after {
+        content: " (shared)";
+      }
+    }
+
+    @include media($smallandtouch) {
+      float: none;
+      height: auto;
+      width: 100%;
+
+      > a {
+        border: 0;
+        display: block;
+        position: static;
+      }
+
+      &.deck::after, &.shared::after {
+        display: none;
+      }
+    }
+  }
+
+  .clearfix {
+    margin-bottom: 2.5em;
+  }
+}

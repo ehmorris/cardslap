@@ -27,3 +27,85 @@ input[type="submit"] {
     opacity: .5;
   }
 }
+
+.new_card textarea, .edit_card textarea, .edit_deck textarea {
+  background: $gray;
+  border: none;
+  @include box-sizing(border-box);
+  color: #fff;
+  float: left;
+  height: $card-size;
+  margin: 0 1em 1em 0;
+  padding: 1em;
+  width: $card-size;
+
+  &#card_back {
+    background: lighten($gray, 40%);
+    color: #000;
+  }
+
+  &:focus {
+    background: darken($gray, 10%);
+    outline: none;
+  }
+
+  @include media($smallandtouch) {
+    border-radius: 0;
+    height: 90px;
+    margin: 0;
+    width: 100%;
+
+    &#card_back {
+      margin-bottom: 1em;
+    }
+  }
+}
+
+.edit_deck .textarea {
+  display: inline-block;
+  float: left;
+  margin: 0 1em 1em 0;
+  overflow: visible;
+  position: relative;
+
+  &::after {
+    background: lighten($gray, 20%);
+    bottom: 0;
+    content: "";
+    display: block;
+    height: $card-size;
+    margin-bottom: 4px;
+    margin-right: -3px;
+    position: absolute;
+    right: 0;
+    width: $card-size;
+    z-index: -1;
+  }
+
+  textarea {
+    margin: 0;
+    border: 1px solid #fff;
+    float: none;
+  }
+
+  @include media($smallandtouch) {
+    margin: 0 0 1em 0;
+
+    &::after {
+      display: none;
+    }
+
+    textarea {
+      border: 0;
+    }
+  }
+}
+
+.exportshare {
+  margin: 0;
+  padding: 2em 0 0 0;
+
+  a {
+    font-size: 80%;
+  }
+}

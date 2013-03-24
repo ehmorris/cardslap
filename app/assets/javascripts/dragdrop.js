@@ -87,6 +87,9 @@ function get_reorder() {
       // re-get reorder-targets after rendering new one
       get_reorder();
 
+      // make new item resizable
+      make_reorderable();
+
       // save card bin location
       $.ajax({
         type: 'POST',
@@ -128,7 +131,10 @@ $(function() {
     // disallow duplicate drops, and make sure the dragged element was a card
     if (!$(memorize_drop).children('li[data-id='+id+']').length &&
         !isNaN(id)) {
+
       this.innerHTML += html;
+      // remove handles so they're no duplicated on drag into main card area
+      $(this).find('.ui-resizable-handle').remove();
       get_draggable();
 
       // save card bin location
