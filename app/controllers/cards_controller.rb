@@ -1,5 +1,6 @@
 class CardsController < ApplicationController
   helper :all
+  before_filter :authorize
 
   def new
     @deck = current_user.decks.find(params[:deck_id])
