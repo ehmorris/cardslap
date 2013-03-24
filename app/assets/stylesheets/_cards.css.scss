@@ -38,6 +38,7 @@
         font: inherit;
         line-height: inherit;
         margin: inherit;
+        white-space: normal;
       }
 
       &.image {
@@ -116,12 +117,12 @@
     }
 
     @include media($smallandtouch) {
-      height: 132px !important;
+      height: 124px !important;
       margin-bottom: 8px;
       margin-right: 8px !important;
-      min-height: 132px !important;
-      min-width: 132px !important;
-      width: 132px !important;
+      min-height: 124px !important;
+      min-width: 124px !important;
+      width: 124px !important;
     }
   }
 

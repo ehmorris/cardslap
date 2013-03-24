@@ -9,6 +9,10 @@ input {
   padding: 4px;
 }
 
+textarea {
+  font-size: 100%;
+}
+
 input[type="submit"] {
   @include button($dark);
   font-family: $helvetica;
