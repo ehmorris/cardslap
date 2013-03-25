@@ -3,7 +3,9 @@ $(function() {
     $(this).toggleClass('flip');
   });
 
+  /*
   $('.cards, #bin').on('longclick', 'li', function() {
     $(this).toggleClass('flip').siblings().toggleClass('flip');
   });
+  */
 });

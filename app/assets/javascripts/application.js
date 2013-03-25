@@ -2,7 +2,6 @@
 //= require jquery_ujs
 //
 //= require jquery.ui.resizable
-//= require jquery.longclick-min.js
 //= require jgestures.min.js
 //= require h5utils.js
 //
