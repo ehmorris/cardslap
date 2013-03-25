@@ -18,17 +18,17 @@
 
 %animation-fade-in {
   @include animation(fade-in .3s $ease-out-sine);
-  @include animation-fill-mode(both);
+  @include animation-fill-mode(backwards);
 }
 
 @mixin fade-in {
   0% {
-    margin-bottom: 3em;
-    margin-top: -2em;
+    margin-bottom: 75px;
+    margin-top: -50px;
     opacity: 0;
   }
   100% {
-    margin-bottom: 1em;
+    margin-bottom: 25px;
     margin-top: 0;
     opacity: 1;
   }

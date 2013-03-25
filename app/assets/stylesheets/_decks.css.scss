@@ -3,8 +3,8 @@
 
   li {
     @extend %animation-fade-in;
-    margin-right: 1em;
     overflow: visible;
+    margin-right: 25px;
 
     $t: 0.1s;
     $delay: $t;
@@ -23,6 +23,10 @@
       padding: 1em;
       position: relative;
       text-align: center;
+
+      &+ li {
+        clear: both;
+      }
 
       textarea {
         background: transparent;
@@ -98,9 +102,5 @@
         display: none;
       }
     }
-  }
-
-  .clearfix {
-    margin-bottom: 2.5em;
   }
 }

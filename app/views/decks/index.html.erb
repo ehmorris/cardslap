@@ -18,7 +18,6 @@
   <li class="create-deck">
     <%= render :partial => 'form', :locals => { :deck => @deck } %>
   </li>
-  <div class="clearfix"></div>
   <% @shared_decks.each do |shared_deck| %>
     <li class="shared">
       <%= link_to shared_deck.name, deck_share_path(shared_deck.id, shared_deck.share_id) %>
