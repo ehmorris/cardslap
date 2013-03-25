@@ -21,23 +21,27 @@
       @include box-sizing(border-box);
       color: #fff;
       padding: 1em;
+      position: relative;
+      text-align: center;
 
       textarea {
+        background: transparent;
+        border: 0;
         @include box-sizing(border-box);
-        height: $card-size * .63;
+        color: #fff;
         margin: 0;
-        width: 100%;
+        padding: 0;
+        @include position(absolute, 1em 1em 4em 1em);
+        text-align: left;
 
         @include media($smallandtouch) {
           height: 3em;
         }
       }
 
-      input {
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-        height: $card-size * .2;
-        width: 100%;
+      input[type=submit] {
+        display: inline-block;
+        margin-top: $card-size - 70px;
       }
     }
 

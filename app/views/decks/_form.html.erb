@@ -1,5 +1,5 @@
 <%= form_for @deck do |form| %>
-  <%= form.text_area :name, :placeholder => 'Deck name' %>
-  <%= form.submit %>
+  <%= form.text_area :name, placeholder: 'Click and enter a new deck name' %>
+  <%= form.submit value: 'create deck' %>
 <% end %>
 

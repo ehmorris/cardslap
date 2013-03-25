@@ -1,7 +1,7 @@
 .cards, #bin {
   @extend %animation-slide-entry;
   @extend %cards-bincards-decks-shared;
-  overflow: auto;
+  overflow: hidden;
 
   &.shared li {
     &:hover .actions {
