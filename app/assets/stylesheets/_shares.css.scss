@@ -1,3 +1,12 @@
+.shares-list {
+  padding: 0;
+
+  a {
+    color: #222;
+    text-decoration: none;
+  }
+}
+
 form.new_share {
   @include media($smallandtouch) {
     input[type="text"], input[type="email"] {
