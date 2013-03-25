@@ -1,10 +1,10 @@
 <ol class="shares-list">
   <% @shares.all.each do |share| %>
     <li>
-      <%= share.email %>
       <%= link_to [@deck, share], :method => :delete do %>
         <i class="icon-remove"></i>
       <% end %>
+      <%= share.email %>
     </li>
   <% end %>
 </ol>

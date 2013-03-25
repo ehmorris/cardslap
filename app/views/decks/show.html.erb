@@ -23,7 +23,9 @@
   <% end %>
 </div>
 
-<ul class="exportshare">
-  <li><a class="export" href="<%= request.url %>.csv">export deck</a></li>
-  <li><%= link_to 'share deck', new_deck_share_path(@deck) %></li>
-</ul>
+<div class="exportshare">
+  <a class="export" href="<%= request.url %>.csv"><i class="icon-download-alt"></i></a>
+  <%= link_to new_deck_share_path(@deck) do %>
+    <i class="icon-share-alt"></i>
+  <% end %>
+</div>
