@@ -12,6 +12,7 @@
     @include transition;
     -webkit-perspective: 1000px;
     width: $card-size;
+    z-index: 1;
 
     .actions {
       background: rgba(0,0,0,.25);
@@ -27,6 +28,7 @@
         color: #fff;
         margin-right: .4em;
         opacity: .65;
+        text-decoration: none;
 
         &:hover {
           opacity: 1;
@@ -44,6 +46,28 @@
         display: block;
         padding: .25em 1em 0 1em;
         position: static;
+      }
+    }
+
+    %actions-dropdown {
+      background: #fff;
+      border-radius: 2px;
+      @include box-shadow(0 2px 10px rgba(0, 0, 0, .2));
+      margin-left: 20px;
+      padding: .5em 0;
+      @include position(absolute, $card-size - 40px 0 0 0);
+      width: $card-size - 40px;
+      z-index: 2;
+
+      a {
+        color: #333;
+        display: block;
+        padding: .5em 1em;
+        text-decoration: none;
+
+        &:hover {
+          background: #eee;
+        }
       }
     }
   }

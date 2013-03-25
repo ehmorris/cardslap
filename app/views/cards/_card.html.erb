@@ -1,20 +1,19 @@
 <% if is_string_image?(card.front) %>
-  <span class="front image">
-    <img src="<%= card.front %>" />
-    <div class="actions">
-      <%= link_to 'edit', edit_deck_card_path(@deck, card), :class => 'edit' %>
-      <%= link_to 'delete', [@deck, card], :method => :delete, :class => 'delete' %>
-    </div>
-  </span>
+<span class="front image">
+  <img src="<%= card.front %>" />
 <% else %>
-  <span class="front">
-    <pre class="text"><%= card.front %></pre>
-    <div class="actions">
-      <%= link_to 'edit', edit_deck_card_path(@deck, card), :class => 'edit' %>
-      <%= link_to 'delete', [@deck, card], :method => :delete, :class => 'delete' %>
-    </div>
-  </span>
+<span class="front">
+  <pre class="text"><%= card.front %></pre>
 <% end %>
+  <div class="actions">
+    <%= link_to edit_deck_card_path(@deck, card), :class => 'edit' do %>
+      <i class="icon-pencil"></i>
+    <% end %>
+    <%= link_to [@deck, card], :method => :delete, :class => 'delete' do %>
+      <i class="icon-remove"></i>
+    <% end %>
+  </div>
+</span>
 
 <% if is_string_image?(card.back) %>
   <span class="back image"><img src="<%= card.back %>" /></span>
