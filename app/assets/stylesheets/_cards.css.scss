@@ -5,7 +5,7 @@
   overflow: visible;
 
   &.shared li {
-    &:hover .actions {
+    .front:hover .actions {
       display: none;
     }
   }
