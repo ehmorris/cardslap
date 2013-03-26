@@ -36,7 +36,7 @@ class DecksController < ApplicationController
     @cards = @deck.cards
 
     @shares = @deck.shares
-    @share = Share.new
+    #@share = Share.new
 
     respond_to do |format|
       format.html

@@ -35,7 +35,6 @@ class SharesController < ApplicationController
         flash[:notice] = "The email #{@share.email} is invalid"
       end
     else
-      redirect_to new_deck_share_path(@deck)
       flash[:notice] = 'Can only share a deck with up to 5 people'
     end
   end
