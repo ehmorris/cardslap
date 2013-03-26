@@ -16,10 +16,10 @@
     <%= render :partial => 'form', :locals => { :deck => @deck } %>
   </li>
   <% @shared_decks.each do |shared_deck| %>
-    <li class="shared">
+    <li class="shared" data-shareid="<%= shared_deck.share_id %>">
       <%= link_to shared_deck.name, deck_share_path(shared_deck.id, shared_deck.share_id) %>
       <div class="actions">
-        <%= link_to deck_share_path(shared_deck.id, shared_deck.share_id), :method => :delete, :class => 'delete' do %>
+        <%= link_to deck_share_path(shared_deck.id, shared_deck.share_id), :method => :delete, :remote => true, :class => 'delete' do %>
           <i class="icon-remove"></i>
         <% end %>
       </div>

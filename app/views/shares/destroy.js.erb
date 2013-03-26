@@ -1,1 +1,7 @@
-$('.shares-list li[data-id=<%= @share.id %>]').remove();
+if ($('.shares-list').length) {
+  $('.shares-list li[data-id=<%= @share.id %>]').remove();
+}
+
+if ($('.decks li.shared').length) {
+  $('.decks li.shared[data-shareid=<%= @share.id %>]').hide();
+}
