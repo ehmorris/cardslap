@@ -1,6 +1,7 @@
 .cards, #bin {
   @extend %animation-slide-entry;
   @extend %cards-bincards-decks-shared;
+  @include clearfix;
   overflow: visible;
 
   &.shared li {

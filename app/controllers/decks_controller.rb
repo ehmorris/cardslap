@@ -35,6 +35,9 @@ class DecksController < ApplicationController
     @deck = @user.decks.find(params[:id])
     @cards = @deck.cards
 
+    @shares = @deck.shares
+    @share = Share.new
+
     respond_to do |format|
       format.html
       format.csv {

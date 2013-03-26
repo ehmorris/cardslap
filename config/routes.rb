@@ -7,6 +7,7 @@ Cardslap::Application.routes.draw do
     resources :quiz, :only => [:index]
   end
 
+
   resources :passwords,
     :controller => 'clearance/passwords',
     :only       => [:new, :create]

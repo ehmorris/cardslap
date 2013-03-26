@@ -9,5 +9,6 @@
 //= require dragdrop.js
 //= require flip.js
 //= require quiz.js
+//= require shares.js
 //
 //= require_self

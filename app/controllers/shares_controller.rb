@@ -21,12 +21,6 @@ class SharesController < ApplicationController
     end
   end
 
-  def new
-    @deck = current_user.decks.find(params[:deck_id])
-    @shares = @deck.shares
-    @share = Share.new
-  end
-
   def create
     @deck = current_user.decks.find(params[:deck_id])
     @share = @deck.shares.build(params[:share])
@@ -35,10 +29,8 @@ class SharesController < ApplicationController
       if !Share.find_by_email_and_deck_id @share.email, @deck.id and email_errors.nil?
         @share.save
         ::ClearanceMailer.new_share(current_user, @share.email, @deck, @share).deliver
-        redirect_to new_deck_share_path(@deck)
         flash[:notice] = "We sent #{@share.email} a link and cc'd you"
       else
-        redirect_to new_deck_share_path(@deck)
         flash[:notice] = "The email #{@share.email} is invalid"
       end
     else
@@ -50,6 +42,5 @@ class SharesController < ApplicationController
   def destroy
     @share = Share.find_by_id(params[:id])
     @share.destroy
-    redirect_to :back
   end
 end

@@ -25,7 +25,6 @@
 
 <div class="exportshare">
   <a class="export" href="<%= request.url %>.csv"><i class="icon-download-alt"></i></a>
-  <%= link_to new_deck_share_path(@deck) do %>
-    <i class="icon-share-alt"></i>
-  <% end %>
+  <a class="share" href="#" data-toggle="dropdown"><i class="icon-share-alt"></i></a>
+  <%= render :partial => 'shares/shares', :locals => { :deck => @deck, :share => @share } %>
 </div>

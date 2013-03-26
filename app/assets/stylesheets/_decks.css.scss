@@ -108,10 +108,16 @@
 .exportshare {
   margin: 0;
   padding: 2em 0 0 0;
+  position: relative;
+
+  .shares-container {
+    bottom: 2em;
+  }
 
   a {
     color: #222;
     margin-right: .4em;
+    outline: none;
     text-decoration: none;
   }
 }

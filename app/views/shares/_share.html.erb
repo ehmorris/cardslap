@@ -1,0 +1,6 @@
+<li data-id="<%= share.id %>">
+  <%= link_to [deck, share], :method => :delete, :remote => true do %>
+    <i class="icon-remove"></i>
+  <% end %>
+  <%= share.email %>
+</li>

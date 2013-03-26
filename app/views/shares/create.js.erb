@@ -1,0 +1,2 @@
+var html = "<%= escape_javascript(render(:partial => 'shares/share', :locals => { :share => @share })) %>";
+$('.shares-list').append(html);

@@ -1,0 +1,14 @@
+<section class="shares-container" role="menu">
+  <ol class="shares-list">
+    <% deck.shares.all.each do |share| %>
+      <%= render :partial => 'shares/share', :locals => { :deck => deck, :share => share } %>
+    <% end %>
+  </ol>
+
+  <%= form_for [deck, share], :remote => true do |form| %>
+    <%= form.text_field :email, placeholder: 'email' %>
+    <%= form.submit 'Share deck' %>
+  <% end %>
+
+  <p>We'll send them a link and cc you.</p>
+</section>
