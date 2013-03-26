@@ -30,10 +30,21 @@ class CardsController < ApplicationController
     @deck = current_user.decks.find(params[:deck_id])
     @card = @deck.cards.find(params[:id])
 
-    if @card.update_attributes(params[:card])
-      redirect_to @deck
-    else
-      render :edit
+    # make sure the user isn't updating someone else's cards via a shared deck
+    @shares = Share.find_all_by_email(current_user.email)
+    shared_flag = false;
+    @shares.each do |share|
+      if share.deck_id == @deck.id
+        shared_flag = true
+      end
+    end
+
+    if !shared_flag
+      if @card.update_attributes(params[:card])
+        redirect_to @deck
+      else
+        render :edit
+      end
     end
   end
 end
