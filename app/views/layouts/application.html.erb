@@ -10,15 +10,10 @@
 <body>
   <div class="wrapper">
     <header>
-      <% if (defined? @share and defined? @deck) %>
-        <h1><%= image_tag 'cardslap-32.png', :class => 'logo' %> <a href="<%= root_path %>">Cardslap</a> <span><%= link_to @deck.name, deck_share_path(@deck.id, @share) %></span></h1>
-      <% elsif ((defined? @card or defined? @share or defined? @quiz) and defined? @deck) %>
-        <h1><%= image_tag 'cardslap-32.png', :class => 'logo' %> <a href="<%= root_path %>">Cardslap</a> <span><%= link_to @deck.name, deck_path(@deck) %></span></h1>
-      <% elsif defined? @deck %>
-        <h1><%= image_tag 'cardslap-32.png', :class => 'logo' %> <a href="<%= root_path %>">Cardslap</a> <span><%= @deck.name %></span></h1>
-      <% else %>
-        <h1><%= image_tag 'cardslap-32.png', :class => 'logo' %> <a href="<%= root_path %>">Cardslap</a></h1>
-      <% end %>
+      <h1><%= image_tag 'cardslap-32.png', :class => 'logo' %>
+        <a href="<%= root_path %>">Cardslap</a>
+        <span><%= header_deck_link %></span>
+      </h1>
     </header>
     <% if flash[:notice] %>
       <div class="notice"><%= flash[:notice] %></div>
