@@ -6,7 +6,7 @@
   </ol>
 
   <%= form_for [deck, share], :remote => true do |form| %>
-    <%= form.text_field :email, placeholder: 'email' %>
+    <%= form.email_field :email, placeholder: 'email' %>
     <%= form.submit 'Share deck' %>
   <% end %>
 

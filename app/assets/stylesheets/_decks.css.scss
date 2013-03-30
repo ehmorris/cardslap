@@ -111,13 +111,28 @@
   position: relative;
 
   .shares-container {
-    bottom: 2em;
+    bottom: 2.5em;
   }
 
   a {
-    color: #222;
-    margin-right: .4em;
+    border: 1px solid #999;
+    border-radius: 3px;
+    color: #666;
+    display: inline-block;
+    margin-right: .25em;
     outline: none;
+    padding: .75em 1em;
     text-decoration: none;
+
+    &:hover {
+      color: #333;
+      border-color: #333;
+    }
+
+    &:active {
+      background: #ccc;
+      border-color: #999;
+      color: #666;
+    }
   }
 }

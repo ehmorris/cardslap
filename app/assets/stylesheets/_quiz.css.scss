@@ -86,11 +86,6 @@
         margin: 0 0 .5em 0;
         width: 300px;
       }
-
-      input[type="button"] {
-        @include button($dark);
-        margin: 0;
-      }
     }
 
     form.form-back {
