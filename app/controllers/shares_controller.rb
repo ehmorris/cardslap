@@ -30,7 +30,6 @@ class SharesController < ApplicationController
       if !Share.find_by_email_and_deck_id @share.email, @deck.id and email_errors.nil? and @share.email != current_user.email
         @share.save
         ::ClearanceMailer.new_share(current_user, @share.email, @deck, @share).deliver
-        flash[:notice] = "We sent #{@share.email} a link and cc'd you"
       else
         flash[:notice] = "The email #{@share.email} is invalid"
       end

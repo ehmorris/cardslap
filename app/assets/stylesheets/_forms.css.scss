@@ -54,39 +54,6 @@ input[type="submit"], input[type="button"] {
   }
 }
 
-.new_card textarea, .edit_card textarea, .edit_deck textarea {
-  background: $gray;
-  border: none;
-  @include box-sizing(border-box);
-  color: #fff;
-  float: left;
-  height: $card-size;
-  margin: 0 1em 1em 0;
-  padding: 1em;
-  width: $card-size;
-
-  &#card_back {
-    background: lighten($gray, 40%);
-    color: #000;
-  }
-
-  &:focus {
-    background: darken($gray, 10%);
-    outline: none;
-  }
-
-  @include media($smallandtouch) {
-    border-radius: 0;
-    height: 90px;
-    margin: 0;
-    width: 100%;
-
-    &#card_back {
-      margin-bottom: 1em;
-    }
-  }
-}
-
 .edit_deck .textarea {
   display: inline-block;
   float: left;

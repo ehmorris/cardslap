@@ -11,14 +11,12 @@ class CardsController < ApplicationController
     @deck = current_user.decks.find(params[:deck_id])
     @card = @deck.cards.build(params[:card])
     @card.save
-    redirect_to @deck
   end
 
   def destroy
     @deck = current_user.decks.find(params[:deck_id])
     @card = @deck.cards.find(params[:id])
     @card.destroy
-    redirect_to @deck
   end
 
   def edit

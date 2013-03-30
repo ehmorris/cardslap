@@ -21,7 +21,7 @@ class DecksController < ApplicationController
     @deck = @user.decks.build(params[:deck])
     if (!@deck.invalid?(:name))
       @deck.save
-      redirect_to new_deck_card_path(@deck)
+      redirect_to deck_path(@deck)
     else
       redirect_to decks_path
       @deck.errors.messages.each do |msg|
@@ -34,9 +34,10 @@ class DecksController < ApplicationController
     @user = current_user
     @deck = @user.decks.find(params[:id])
     @cards = @deck.cards
-
     @shares = @deck.shares
+
     @share = Share.new
+    @card = Card.new
 
     respond_to do |format|
       format.html

@@ -128,7 +128,7 @@
   }
 
   li.reorder-target {
-    margin: 0;
+    margin: 0 0 25px 0;
     max-width: 25px;
     min-height: $card-size;
     min-width: 25px;
@@ -218,5 +218,69 @@
       margin-right: 8px;
       width: 132px !important;
     }
+  }
+}
+
+.card-form {
+  .entries {
+    float: left;
+    height: $card-size;
+    position: relative;
+
+    textarea {
+      background: $gray;
+      border: none;
+      @include box-sizing(border-box);
+      color: #fff;
+      height: $card-size / 2;
+      margin: 0;
+      padding: 1em;
+      @include transition;
+      width: $card-size;
+
+      &:focus {
+        background: darken($gray, 10%);
+        outline: none;
+      }
+
+      &#card_back {
+        background: lighten($gray, 40%);
+        color: #000;
+
+        &:focus {
+          height: $card-size / 1.5;
+          position: absolute;
+          bottom: 0;
+        }
+      }
+
+      &#card_front:focus {
+        height: $card-size / 1.5;
+
+        &+textarea {
+          height: $card-size / 3;
+        }
+      }
+
+      @include media($smallandtouch) {
+        border-radius: 0;
+        height: 90px;
+        margin: 0;
+        width: 100%;
+
+        &#card_back {
+          margin-bottom: 1em;
+        }
+      }
+    }
+  }
+
+  input[type="submit"] {
+    float: left;
+    font-weight: bold;
+    margin-left: 12px;
+    margin-right: 25px;
+    margin-top: 80px;
+    padding-bottom: .75em;
   }
 }
