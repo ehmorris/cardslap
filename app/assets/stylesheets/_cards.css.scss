@@ -177,50 +177,6 @@
   }
 }
 
-#bin {
-  border: .15em dashed lighten($gray, 20%);
-  @include box-sizing(border-box);
-  clear: both;
-  display: inline-block;
-  margin-top: 1em;
-  min-height: $card-size / 2;
-  min-width: $card-size;
-  padding: 1em 0 0 1em;
-  @include transition;
-
-  &.over {
-    border: .15em solid yellow;
-  }
-
-  h2 {
-    color: lighten($gray, 10%);
-    font-size: 100%;
-    font-weight: normal;
-    margin-bottom: 1em;
-  }
-
-  li {
-    height: $card-size / 1.5 !important;
-    margin-right: 1em;
-    min-height: auto !important;
-    min-width: auto !important;
-    width: $card-size / 1.5 !important;
-  }
-
-  @include media($smallandtouch) {
-    border: 0;
-    opacity: .6;
-    padding: 0;
-    width: 100%;
-
-    li {
-      height: 132px !important;
-      margin-right: 8px;
-      width: 132px !important;
-    }
-  }
-}
-
 .card-form {
   .entries {
     float: left;

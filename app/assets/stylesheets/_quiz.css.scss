@@ -1,10 +1,17 @@
 .cards-quiz {
   height: 400px;
 
-  li {
-    background: #999;
-    @include box-sizing(content-box);
+  ul {
     display: none;
+
+    &:first-child {
+      display: block;
+    }
+  }
+
+  li {
+    @include box-sizing(content-box);
+    display: block;
     height: 300px;
     -moz-perspective: 600px;
     overflow: hidden;
@@ -12,10 +19,6 @@
     @include position(absolute, 0 0px 0 0px);
     @include transition;
     -webkit-perspective: 600px;
-
-    &:first-child {
-      display: block;
-    }
 
     .front, .back {
       background: #eee;

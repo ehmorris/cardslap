@@ -1,4 +1,4 @@
-<li draggable="true" data-sort="<%= card.sort_number %>" data-id="<%= card.id %>" style="width: <%= card.width %>px; height: <%= card.height %>px;">
+<li draggable="true" class="single-card" data-sort="<%= card.sort_number %>" data-id="<%= card.id %>" style="width: <%= card.width %>px; height: <%= card.height %>px;">
   <% if is_string_image?(card.front) %>
   <span class="front image">
     <img src="<%= card.front %>" />
