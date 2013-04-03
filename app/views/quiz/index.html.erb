@@ -1,19 +1,17 @@
 <ul class="cards-quiz" data-deck_id="<%= @deck.id %>">
   <% @cards.each do |card| %>
     <% if card.bin == 'main' %>
-      <li data-id="<%= card.id %>">
-        <%= render card %>
-        <form class="form-front">
-          <textarea placeholder="What's on the back side?"></textarea>
-          <input type="submit" value="Make a guess" />
-        </form>
-        <form class="form-back">
-          <p class="guess"></p>
-          <p>Did you get it right?</p>
-          <input type="button" class="yes" value="Yes" />
-          <input type="button" class="no" value="No" />
-        </form>
-      </li>
+      <%= render :partial => 'cards/card', :locals => { :deck => @deck, :card => card } %>
+      <form class="form-front">
+        <textarea placeholder="What's on the back side?"></textarea>
+        <input type="submit" value="Make a guess" />
+      </form>
+      <form class="form-back">
+        <p class="guess"></p>
+        <p>Did you get it right?</p>
+        <input type="button" class="yes" value="Yes" />
+        <input type="button" class="no" value="No" />
+      </form>
     <% end %>
   <% end %>
 </ul>
@@ -22,9 +20,7 @@
   <h2>Memorized Pile</h2>
   <% @cards.each do |card| %>
     <% if card.bin == 'bin' %>
-      <li draggable="true" data-id="<%= card.id %>">
-        <%= render card %>
-      </li>
+      <%= render :partial => 'cards/card', :locals => { :deck => @deck, :card => card } %>
     <% end %>
   <% end %>
 </div>
