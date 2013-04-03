@@ -1,3 +1,15 @@
 var html = "<%= escape_javascript(render(:partial => 'cards/card', :locals => { :deck => @deck, :card => @card })) %>";
+
 $('#new_card').after(html);
 $('#new_card textarea').val('');
+
+// to make sure the new card is always the first in the deck, increase all other card sort numbers by one
+<% @deck.cards.each do |card| %>
+  <% if @card.id != card.id %>
+    $.ajax({
+      type: 'POST',
+      url: '/decks/<%= @deck.id %>/cards/<%= card.id %>',
+      data: {_method: 'PUT', card: {sort_number: <%= card.sort_number + 1 %>}}
+    });
+  <% end %>
+<% end %>

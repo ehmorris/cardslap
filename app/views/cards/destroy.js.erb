@@ -1,1 +1,5 @@
+if ($('.cards li[data-id=<%= @card.id %>]').length) {
+  $('.cards li[data-id=<%= @card.id %>]').next('.reorder-target').remove();
+}
+
 $('#bin li[data-id=<%= @card.id %>], .cards li[data-id=<%= @card.id %>]').remove();
