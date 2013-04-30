@@ -13,3 +13,6 @@ $('#new_card textarea').val('');
     });
   <% end %>
 <% end %>
+
+// make new card auto editable
+$('.single-card[data-id=<%= @card.id %>] a.edit').click();

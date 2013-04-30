@@ -7,7 +7,7 @@
     <pre class="text"><%= card.front %></pre>
   <% end %>
     <div class="actions">
-      <%= link_to edit_deck_card_path(deck, card), :class => 'edit' do %>
+      <%= link_to edit_deck_card_path(deck, card), :remote => :true, :class => 'edit' do %>
         <i class="icon-pencil"></i>
       <% end %>
       <%= link_to [deck, card], :method => :delete, :remote => :true, :class => 'delete' do %>

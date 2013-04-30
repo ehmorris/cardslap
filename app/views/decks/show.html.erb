@@ -1,5 +1,5 @@
 <ul class="cards" data-deck_id="<%= @deck.id %>">
-  <%= render :partial => 'cards/card-form', :locals => { :deck => @deck, :card => @card } %>
+  <%= render :partial => 'cards/new-card-form', :locals => { :deck => @deck, :card => @card } %>
   <% @cards.each do |card| %>
     <% if card.bin == 'main' %>
       <%= render :partial => 'cards/card', :locals => { :deck => @deck, :card => card } %>

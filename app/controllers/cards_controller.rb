@@ -32,12 +32,10 @@ class CardsController < ApplicationController
       end
     end
 
-    if !shared_flag
-      if @card.update_attributes(params[:card])
-        redirect_to @deck
-      else
-        render :edit
-      end
+    if shared_flag
+      redirect_to @deck
+    else
+      @card.update_attributes(params[:card])
     end
   end
 end

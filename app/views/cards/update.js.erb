@@ -1,0 +1,10 @@
+console.log('<%= @card.id %>');
+
+$('#edit_card_<%= @card.id %>').remove();
+
+if ('<%= params['card']['front'] %>') {
+  $('.single-card[data-id=<%= @card.id %>] .front .text').text('<%= escape_javascript(params['card']['front']) %>');
+  $('.single-card[data-id=<%= @card.id %>] .back .text').text('<%= escape_javascript(params['card']['back']) %>');
+}
+
+$('.single-card[data-id=<%= @card.id %>]').show().removeClass('flip');
