@@ -1,10 +1,21 @@
-<aside class="sign-up">
-  <%= form_for @user, :html => { :class => 'sign-up vertical' } do |form| %>
-    <%= form.text_field :email, :type => 'email', :placeholder => 'email', :value => params['email'] %>
-    <%= form.password_field :password, :placeholder => 'password' %>
-    <%= form.submit 'Create an account' %>
-  <% end %>
-  <p>Already have an account? <%= link_to 'Sign in', sign_in_path %></p>
-</aside>
+<h1 class="logo"><span>Card</span><span>slap</span></h1>
 
-<%= render 'partials/marketing' %>
+<section class="auth">
+  <section class="form sign-up">
+    <h2>Create a Cardslap account</h2>
+    <%= form_for @user do |form| %>
+      <%= form.text_field :email, :type => 'email', :placeholder => 'email', :value => params['email'] %>
+      <%= form.password_field :password, :placeholder => 'password' %>
+      <%= form.submit 'Create an account' %>
+    <% end %>
+  </section>
+  <section class="form sign-in">
+    <h2>Already have an account?</h2>
+    <%= form_for :session, :url => session_path do |form| %>
+      <%= form.text_field :email, :type => 'email', :placeholder => 'email' %>
+      <%= form.password_field :password, :placeholder => 'password' %>
+      <%= link_to "forgot your password?", new_password_path, :class => 'reset' %>
+      <%= form.submit "Sign in" %>
+    <% end %>
+  </section>
+</section>

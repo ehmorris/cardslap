@@ -5,6 +5,11 @@ class Clearance::UsersController < ApplicationController
   skip_before_filter :authorize,   :only => [:new, :create]
   before_filter :redirect_to_root, :only => [:new, :create], :if => :signed_in?
 
+  def new
+    @user = Clearance.configuration.user_model.new(params[:user])
+    render :template => 'users/new', :layout => 'marketing'
+  end
+
   def edit
     @user = current_user
     render :template => 'users/show'
@@ -21,19 +26,14 @@ class Clearance::UsersController < ApplicationController
     end
   end
 
-  def new
-    @user = Clearance.configuration.user_model.new(params[:user])
-    render :template => 'users/new'
-  end
-
   def create
     @user = Clearance.configuration.user_model.new(params[:user])
     if @user.save
       sign_in(@user)
-      redirect_back_or(url_after_create)
+      redirect_back_or root_url
     else
       flash_failure_after_create
-      render :template => 'users/new'
+      render :template => 'users/new', :layout => 'marketing'
     end
   end
 
@@ -42,10 +42,6 @@ class Clearance::UsersController < ApplicationController
   def flash_failure_after_create
     flash.now[:notice] = translate(:bad_email_or_password,
       :scope   => [:clearance, :controllers, :passwords],
-      :default => "Sorry, there was a problem with your sign up info. Do you want to sign in?")
-  end
-
-  def url_after_create
-    '/'
+      :default => "There was an error. That account may already exist.")
   end
 end

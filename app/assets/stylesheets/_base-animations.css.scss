@@ -2,7 +2,6 @@
   @include animation(slide-entry 0.2s $ease-out-sine);
   @include animation-fill-mode(both);
 }
-
 @mixin slide-entry {
   0% {
     right: 100%;
@@ -16,11 +15,12 @@
         @keyframes slide-entry { @include slide-entry; }
 
 
+
+
 %animation-fade-in {
   @include animation(fade-in .3s $ease-out-sine);
   @include animation-fill-mode(backwards);
 }
-
 @mixin fade-in {
   0% {
     margin-bottom: 75px;
@@ -37,23 +37,49 @@
    @-moz-keyframes fade-in { @include fade-in; }
         @keyframes fade-in { @include fade-in; }
 
-%animation-caption-entry {
-  @include animation(caption-entry 1.0s $ease-out-sine);
-}
 
-@mixin caption-entry {
+
+
+%animation-background-cycle {
+  @include animation(background-cycle 100s $ease-out-sine);
+  @include animation-fill-mode(both);
+  @include animation-iteration-count(infinite);
+}
+@mixin background-cycle {
   0% {
-    left: -100%;
-    opacity: 0;
+    background: darken($melongreen, 5%);
+  }
+  10% {
+    background: lighten($melongreen, 5%);
+  }
+  20% {
+    background: $melongreen;
+  }
+  30% {
+    background: darken($blue, 10%);
+  }
+  40% {
+    background: lighten($melongreen, 5%);
   }
   50% {
-    left: -100%;
-    opacity: 0;
+    background: $pink;
+  }
+  60% {
+    background: lighten($pink, 5%);
+  }
+  70% {
+    background: lighten($melongreen, 5%);
+  }
+  80% {
+    background: $blue;
+  }
+  90% {
+    background: lighten($blue, 5%);
   }
   100% {
-    left: 0;
+    background: darken($melongreen, 5%);
   }
 }
-@-webkit-keyframes caption-entry { @include caption-entry; }
-   @-moz-keyframes caption-entry { @include caption-entry; }
-        @keyframes caption-entry { @include caption-entry; }
+@-webkit-keyframes background-cycle { @include background-cycle; }
+   @-moz-keyframes background-cycle { @include background-cycle; }
+        @keyframes background-cycle { @include background-cycle; }

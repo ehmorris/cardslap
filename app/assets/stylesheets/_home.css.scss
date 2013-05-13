@@ -1,92 +1,120 @@
-figure {
-  float: left;
-  margin-bottom: 2em;
-  position: relative;
-  width: 65%;
+body.home {
+  @extend %animation-background-cycle;
+  background: $melongreen;
+  color: #fff;
+  font-family: $sans;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin: 0;
+  @include transition(15s);
+  -webkit-font-smoothing: antialiased;
 
-  .marketing-image {
-    border-radius: 5px;
-    @include box-shadow(0 10px 25px 0 rgba(0,0,0,.3));
+  h1.logo {
+    color: darken(desaturate($melongreen, 10%), 10%);
+    font: 800 28vw/1em $sans;
+    margin: 0;
+    position: fixed;
+    text-transform: uppercase;
+    top: 0;
+    @include user-select(none);
     width: 100%;
+    z-index: -1;
+
+    span {
+      display: block;
+
+      &:last-child {
+        margin-right: .75vw;
+        text-align: right;
+      }
+    }
   }
 
-  figcaption {
-    @extend %animation-caption-entry;
-    background: rgba(0,0,0,.5);
-    bottom: 2em;
-    @include box-sizing(border-box);
-    color: #fff;
-    display: block;
-    font-size: 150%;
-    left: 0;
-    padding: 2em;
-    position: absolute;
-    width: 100%;
+  .auth {
+    margin-top: 100vh;
+
+    .form {
+      margin: auto;
+      min-width: 300px;
+      padding: 2rem;
+      width: 40%;
+    }
+
+    h2 {
+      margin: 0 0 1rem 0;
+    }
 
     p {
-      margin: 0;
-      line-height: 1.2em;
+      margin: 1rem 0 0 0;
     }
 
-    // paragraph with button
-    p:nth-child(2) {
-      margin-top: 1em;
+    a {
+      color: #fff;
     }
 
-    a, a:link, a:hover, a:visited, a:active, a:focus {
-      @include button('shiny');
-      padding-top: 4px;
-      padding-bottom: 4px;
-      text-decoration: none;
+    input, .reset {
+      border: 0;
+      border-radius: 2px;
+      font-family: $mono;
+      font-size: 1.1rem;
+      font-weight: 100;
+      letter-spacing: 1px;
+      margin: 0 0 1rem 0;
+      padding: .75rem 1rem;
+      width: 100%;
     }
-  }
 
-  @include media($smallandtouch) {
-    width: 100%;
+    input[type=submit] {
+      background: darken(desaturate($melongreen, 10%), 20%);
+      margin-bottom: 0;
+      text-align: left;
 
-    figcaption {
-      background: transparent;
-      color: #000;
-      font-size: 120%;
-      padding: 1em 0 0 0;
-      position: static;
+      &:hover {
+        background: darken(desaturate($melongreen, 5%), 15%);
+      }
+
+      &:focus, &:active {
+        background: darken(desaturate($melongreen, 15%), 25%);
+        color: #fff;
+      }
     }
-  }
-}
 
-figure:last-child {
-  margin-bottom: 0;
-}
+    .sign-up {
+      background: #fff;
 
-aside.sign-up {
-  position: fixed;
-  right: 4em;
-  width: 25%;
+      h2 {
+        color: $blue;
+      }
 
-  form.sign-up {
-    margin-bottom: 1.5em;
+      input {
+        border: 1px solid $blue;
+      }
 
-    input[type="submit"] {
-      @include button(shiny);
-      font-size: 100%;
+      input[type=submit] {
+        background: $blue;
+        border: 0;
+
+        &:hover {
+          background: lighten($blue, 5%);
+        }
+
+        &:focus, &:active {
+          background: darken($blue, 10%);
+        }
+      }
     }
-  }
 
-  p {
-    font-size: 80%;
-    margin-bottom: .5em;
-  }
+    .sign-in {
+      form {
+        position: relative;
+      }
 
-  @include media($smallandtouch) {
-    margin-bottom: 2em;
-    position: static;
-    width: 100%;
-
-    form.sign-up {
-      margin-bottom: 1em;
-
-      input[type="submit"] {
-        margin-bottom: 0;
+      .reset {
+        color: $blue;
+        margin-top: -3.75rem;
+        position: absolute;
+        right: 0;
+        width: auto;
       }
     }
   }

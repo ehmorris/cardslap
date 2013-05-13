@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cardslap, a flashcard app</title>
+  <link href="http://fonts.googleapis.com/css?family=PT+Mono|Oswald" rel="stylesheet" type="text/css">
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="initial-scale=1.0"/>
+</head>
+<body class="home">
+  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+    <div class="clearfix"></div>
+  <% end %>
+  <%= yield %>
+</body>
+</html>

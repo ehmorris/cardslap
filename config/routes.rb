@@ -13,7 +13,7 @@ Cardslap::Application.routes.draw do
 
   resource  :session,
     :controller => 'clearance/sessions',
-    :only       => [:new, :create, :destroy]
+    :only       => [:create, :destroy]
 
   resources :users, :controller => 'clearance/users' do
     resource :password,
