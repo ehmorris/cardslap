@@ -16,7 +16,7 @@ body.home {
   line-height: 2rem;
   margin: 0;
 
-  .notice, .♫ {
+  .notice, .pitch {
     @include auth-box;
     background: none;
     color: #000;
@@ -37,7 +37,7 @@ body.home {
     display: block;
   }
 
-  .♫ {
+  .pitch {
     p {
       margin-top: 0;
     }
@@ -48,7 +48,7 @@ body.home {
   }
 
   &.flash {
-    .♫ {
+    .pitch {
       display: none;
     }
   }
