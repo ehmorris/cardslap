@@ -1,24 +1,51 @@
+@mixin auth-box {
+  min-width: 300px;
+  padding: 2rem;
+  width: 40%;
+
+  @include media($smallandtouch) {
+    padding: 1rem;
+  }
+}
+
 body.home {
-  @extend %animation-background-cycle;
-  background: $melongreen;
-  color: #fff;
+  background: $off-white;
   font-family: $sans;
   font-weight: 400;
   letter-spacing: 1px;
   margin: 0;
-  @include transition(15s);
-  -webkit-font-smoothing: antialiased;
+
+  .notice {
+    @include auth-box;
+    background: none;
+    color: #000;
+    font-family: $mono;
+    font-size: 1.5rem;
+    margin: 10vh auto 0 auto;
+    text-align: left;
+
+    &:before {
+      content: 'error.';
+      display: block;
+    }
+  }
 
   h1.logo {
-    color: darken(desaturate($melongreen, 10%), 10%);
+    color: $blue;
     font: 800 28vw/1em $sans;
+    letter-spacing: 0px;
     margin: 0;
     position: fixed;
     text-transform: uppercase;
     top: 0;
+    @include transition;
     @include user-select(none);
     width: 100%;
     z-index: -1;
+
+    @include media($smallandtouch) {
+      color: desaturate($blue, 100%) !important;
+    }
 
     span {
       display: block;
@@ -30,14 +57,31 @@ body.home {
     }
   }
 
+  &.flash {
+    .auth {
+      margin-top: 20vh;
+
+      @include media($smallandtouch) {
+        margin-top: 5vh;
+      }
+    }
+  }
+
   .auth {
     margin-top: 100vh;
 
+    @include media($smallandtouch) {
+      margin-top: 15vh;
+    }
+
     .form {
+      @include auth-box;
+      background: $off-white;
       margin: auto;
-      min-width: 300px;
-      padding: 2rem;
-      width: 40%;
+
+      @include media($smallandtouch) {
+        background: none;
+      }
     }
 
     h2 {
@@ -64,42 +108,30 @@ body.home {
       width: 100%;
     }
 
+    input[type=email], input[type=password] {
+      background: #eee;
+    }
+
     input[type=submit] {
-      background: darken(desaturate($melongreen, 10%), 20%);
       margin-bottom: 0;
       text-align: left;
-
-      &:hover {
-        background: darken(desaturate($melongreen, 5%), 15%);
-      }
-
-      &:focus, &:active {
-        background: darken(desaturate($melongreen, 15%), 25%);
-        color: #fff;
-      }
     }
 
     .sign-up {
-      background: #fff;
-
       h2 {
-        color: $blue;
-      }
-
-      input {
-        border: 1px solid $blue;
+        color: $pink;
       }
 
       input[type=submit] {
-        background: $blue;
+        background: $pink;
         border: 0;
 
         &:hover {
-          background: lighten($blue, 5%);
+          background: lighten($pink, 5%);
         }
 
         &:focus, &:active {
-          background: darken($blue, 10%);
+          background: darken($pink, 10%);
         }
       }
     }
@@ -110,7 +142,7 @@ body.home {
       }
 
       .reset {
-        color: $blue;
+        color: #999;
         margin-top: -3.75rem;
         position: absolute;
         right: 0;

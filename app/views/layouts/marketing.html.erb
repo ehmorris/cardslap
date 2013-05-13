@@ -8,7 +8,7 @@
   <%= csrf_meta_tags %>
   <meta name="viewport" content="initial-scale=1.0"/>
 </head>
-<body class="home">
+<body class="home <% if flash[:notice] %>flash<% end %>">
   <% if flash[:notice] %>
     <div class="notice"><%= flash[:notice] %></div>
     <div class="clearfix"></div>

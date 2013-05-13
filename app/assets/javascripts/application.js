@@ -10,5 +10,6 @@
 //= require flip.js
 //= require quiz.js
 //= require shares.js
+//= require home.js
 //
 //= require_self

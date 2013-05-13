@@ -42,6 +42,6 @@ class Clearance::UsersController < ApplicationController
   def flash_failure_after_create
     flash.now[:notice] = translate(:bad_email_or_password,
       :scope   => [:clearance, :controllers, :passwords],
-      :default => "There was an error. That account may already exist.")
+      :default => "That account may already exist.")
   end
 end

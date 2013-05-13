@@ -14,7 +14,7 @@
     <%= form_for :session, :url => session_path do |form| %>
       <%= form.text_field :email, :type => 'email', :placeholder => 'email' %>
       <%= form.password_field :password, :placeholder => 'password' %>
-      <%= link_to "forgot your password?", new_password_path, :class => 'reset' %>
+      <%= link_to "forgot?", new_password_path, :class => 'reset' %>
       <%= form.submit "Sign in" %>
     <% end %>
   </section>

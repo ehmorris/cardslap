@@ -25,6 +25,7 @@ input[type="submit"], input[type="button"] {
   margin: 0;
   padding: 8px 1em;
   @include transition(.1s);
+  -webkit-appearance: none;
 
   &:hover {
     background: #222;

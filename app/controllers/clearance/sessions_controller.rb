@@ -26,6 +26,6 @@ class Clearance::SessionsController < ApplicationController
   def flash_failure_after_create
     flash.now[:notice] = translate(:bad_email_or_password,
       :scope   => [:clearance, :controllers, :sessions],
-      :default => "There was an error. Either your email or your password aren't right, or you don't have an account.")
+      :default => "Either your email or your password aren't right, or you don't have an account.")
   end
 end

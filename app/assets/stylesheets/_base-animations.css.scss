@@ -47,37 +47,37 @@
 }
 @mixin background-cycle {
   0% {
-    background: darken($melongreen, 5%);
+    color: darken($melongreen, 5%);
   }
   10% {
-    background: lighten($melongreen, 5%);
+    color: lighten($melongreen, 5%);
   }
   20% {
-    background: $melongreen;
+    color: $melongreen;
   }
   30% {
-    background: darken($blue, 10%);
+    color: darken($blue, 10%);
   }
   40% {
-    background: lighten($melongreen, 5%);
+    color: lighten($melongreen, 5%);
   }
   50% {
-    background: $pink;
+    color: $pink;
   }
   60% {
-    background: lighten($pink, 5%);
+    color: lighten($pink, 5%);
   }
   70% {
-    background: lighten($melongreen, 5%);
+    color: lighten($melongreen, 5%);
   }
   80% {
-    background: $blue;
+    color: $blue;
   }
   90% {
-    background: lighten($blue, 5%);
+    color: lighten($blue, 5%);
   }
   100% {
-    background: darken($melongreen, 5%);
+    color: darken($melongreen, 5%);
   }
 }
 @-webkit-keyframes background-cycle { @include background-cycle; }
