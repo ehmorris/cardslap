@@ -1,6 +1,6 @@
 module CardsHelper
   def is_string_image_extension? str
-    return ['jpeg', 'jpg', 'png', 'gif', 'webp'].include? str
+    return ['jpeg', 'jpg', 'png', 'gif', 'webp'].include? str.downcase
   end
 
   def is_string_image? str
