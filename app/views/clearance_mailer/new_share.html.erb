@@ -1,7 +1,8 @@
-You've been cardslapped!
+<h2>You've been cardslapped!</h2>
+<p><%= @user.email %> has shared their deck, "<%= @deck.name %>" with you on Cardslap.</p>
+<p><%= link_to 'Access it here', url_for(:controller => 'shares', :action => 'show', :deck_id => @deck.id, :id => @share.id, :host => 'cardslap.heroku.com', :source => 'email', :email => @invitee) %></p>
 
+<br />
 
-<%= @user.email %> has shared their deck, "<%= @deck.name %>" with you on Cardslap.
-
-
-<%= link_to 'Access it here', url_for(:controller => 'shares', :action => 'show', :deck_id => @deck.id, :id => @share.id, :host => 'cardslap.heroku.com', :source => 'email', :email => @invitee) %>
+<p>Don't know what Cardslap is? Find out more here: <a href="http://cardslap.heroku.com">http://cardslap.heroku.com</a></p>
+<p>Have questions? Email me, the creator of Cardslap: <a href="mailto:edwin@ehmorris.com">edwin@ehmorris.com</a></p>
