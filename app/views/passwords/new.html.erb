@@ -1,6 +1,9 @@
-<p>We will email you a link to reset your password.</p>
-
-<%= form_for :password, :url => passwords_path do |form| %>
-    <%= form.text_field :email, :type => 'email', :placeholder => 'email' %>
-    <%= form.submit 'Reset password' %>
-<% end %>
+<section class="auth reset-password">
+  <section class="form reset-password">
+    <%= form_for :password, :url => passwords_path do |form| %>
+      <%= form.text_field :email, :type => 'email', :placeholder => 'email' %>
+      <%= form.submit 'Reset password' %>
+    <% end %>
+    <p>We will email you a link to reset your password.</p>
+  </section>
+</section>

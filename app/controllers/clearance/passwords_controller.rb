@@ -7,7 +7,7 @@ class Clearance::PasswordsController < ApplicationController
 
   def new
     if !signed_in?
-      render :template => 'passwords/new'
+      render :template => 'passwords/new', :layout => 'marketing'
     else
       redirect_to account_path
     end
@@ -18,10 +18,10 @@ class Clearance::PasswordsController < ApplicationController
                    params[:password][:email])
       user.forgot_password!
       ::ClearanceMailer.change_password(user).deliver
-      render :template => 'passwords/create'
+      render :template => 'passwords/create', :layout => 'marketing'
     else
       flash_failure_after_create
-      render :template => 'passwords/new'
+      render :template => 'passwords/new', :layout => 'marketing'
     end
   end
 

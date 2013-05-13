@@ -13,20 +13,43 @@ body.home {
   font-family: $sans;
   font-weight: 400;
   letter-spacing: 1px;
+  line-height: 2rem;
   margin: 0;
 
-  .notice {
+  .notice, .♫ {
     @include auth-box;
     background: none;
     color: #000;
     font-family: $mono;
     font-size: 1.5rem;
+    font-weight: 800;
     margin: 10vh auto 0 auto;
     text-align: left;
 
-    &:before {
-      content: 'error.';
-      display: block;
+    @include media($smallandtouch) {
+      font-size: 1.2rem;
+      margin-top: 5vh;
+    }
+  }
+
+  .notice:before {
+    content: 'error.';
+    display: block;
+  }
+
+  .♫ {
+    p {
+      margin-top: 0;
+    }
+
+    @include media($smallandtouch) {
+      margin-top: 8vh;
+    }
+  }
+
+  &.flash {
+    .♫ {
+      display: none;
     }
   }
 
@@ -57,21 +80,11 @@ body.home {
     }
   }
 
-  &.flash {
-    .auth {
-      margin-top: 20vh;
-
-      @include media($smallandtouch) {
-        margin-top: 5vh;
-      }
-    }
-  }
-
   .auth {
-    margin-top: 100vh;
+    margin-top: 15vh;
 
     @include media($smallandtouch) {
-      margin-top: 15vh;
+      margin-top: 5vh;
     }
 
     .form {
@@ -92,11 +105,7 @@ body.home {
       margin: 1rem 0 0 0;
     }
 
-    a {
-      color: #fff;
-    }
-
-    input, .reset {
+    input, .sign-in .reset {
       border: 0;
       border-radius: 2px;
       font-family: $mono;
@@ -143,7 +152,7 @@ body.home {
 
       .reset {
         color: #999;
-        margin-top: -3.75rem;
+        margin-top: -4.1rem;
         position: absolute;
         right: 0;
         width: auto;
