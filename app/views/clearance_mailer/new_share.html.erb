@@ -1,4 +1,3 @@
-<h2>You've been cardslapped!</h2>
 <p><%= @user.email %> has shared their deck, "<%= @deck.name %>" with you on Cardslap.</p>
 <p><%= link_to 'Access it here', url_for(:controller => 'shares', :action => 'show', :deck_id => @deck.id, :id => @share.id, :host => 'cardslap.heroku.com', :source => 'email', :email => @invitee) %></p>
 
