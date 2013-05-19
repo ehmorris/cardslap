@@ -1,13 +1,13 @@
 %animation-slide-entry {
-  @include animation(slide-entry 0.2s $ease-out-sine);
+  @include animation(slide-entry 0.5s ease);
   @include animation-fill-mode(both);
 }
 @mixin slide-entry {
   0% {
-    right: 100%;
+    @include transform(translate(-100%, 0));
   }
   100% {
-    right: 0;
+    @include transform(translate(0%, 0));
   }
 }
 @-webkit-keyframes slide-entry { @include slide-entry; }
@@ -23,14 +23,12 @@
 }
 @mixin fade-in {
   0% {
-    margin-bottom: 75px;
-    margin-top: -50px;
     opacity: 0;
+    @include transform(translateY(-50px));
   }
   100% {
-    margin-bottom: 25px;
-    margin-top: 0;
     opacity: 1;
+    @include transform(translateY(0px));
   }
 }
 @-webkit-keyframes fade-in { @include fade-in; }
