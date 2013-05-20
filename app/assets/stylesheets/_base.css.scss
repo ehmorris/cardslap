@@ -25,31 +25,12 @@ header {
   overflow: visible;
 
   h1 {
+    font-family: $sans;
     margin: 0;
     padding: 1.5em 0 2em;
 
     img.logo {
       margin: 0;
-    }
-
-    a.logo {
-      position: relative;
-
-      &:after {
-        content: '';
-        display: block;
-        height: 100px;
-        @include linear-gradient(top, #e0e0e0, #f0f0f0);
-        @include position(absolute, -40px 0 0 0);
-        @include transform(perspective(150) rotate3d(2, 1, 2, 40deg));
-        @include transition;
-        width: 100px;
-        z-index: -1;
-      }
-
-      &:hover:after {
-        @include transform(perspective(150) rotate3d(1, 1, 2, 0deg));
-      }
     }
 
     a, a:link, a:visited {
@@ -83,6 +64,7 @@ footer {
   clear: both;
   display: block;
   padding: 2em 0;
+  font-family: $mono;
 
   p {
     font-size: 80%;

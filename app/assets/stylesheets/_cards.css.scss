@@ -19,6 +19,7 @@
     }
 
     .front, .back {
+      @include backface-visibility(hidden);
       background: $gray;
       bottom: 0;
       color: #fff;
@@ -28,12 +29,8 @@
       position: absolute;
       right: 0;
       top: 0;
-      -webkit-backface-visibility: hidden;
-      -webkit-transform-style: preserve-3d;
-      -webkit-transition: all .25s ease-in-out;
-      -moz-backface-visibility: hidden;
-      -moz-transform-style: preserve-3d;
-      -moz-transition: all .25s ease-in-out;
+      @include transform-style(preserve-3d);
+      @include transition(all .25s ease-in-out);
 
       pre.text {
         font: inherit;

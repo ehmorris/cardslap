@@ -2,7 +2,7 @@
   @include animation(slide-entry 0.5s ease);
   @include animation-fill-mode(both);
 }
-@mixin slide-entry {
+@include keyframes(slide-entry) {
   0% {
     @include transform(translate(-100%, 0));
   }
@@ -10,18 +10,13 @@
     @include transform(translate(0%, 0));
   }
 }
-@-webkit-keyframes slide-entry { @include slide-entry; }
-   @-moz-keyframes slide-entry { @include slide-entry; }
-        @keyframes slide-entry { @include slide-entry; }
-
-
 
 
 %animation-fade-in {
   @include animation(fade-in .3s $ease-out-sine);
   @include animation-fill-mode(backwards);
 }
-@mixin fade-in {
+@include keyframes(fade-in) {
   0% {
     opacity: 0;
     @include transform(translateY(-50px));
@@ -31,11 +26,6 @@
     @include transform(translateY(0px));
   }
 }
-@-webkit-keyframes fade-in { @include fade-in; }
-   @-moz-keyframes fade-in { @include fade-in; }
-        @keyframes fade-in { @include fade-in; }
-
-
 
 
 %animation-background-cycle {
@@ -43,7 +33,7 @@
   @include animation-fill-mode(both);
   @include animation-iteration-count(infinite);
 }
-@mixin background-cycle {
+@include keyframes(background-cycle) {
   0% {
     color: darken($melongreen, 5%);
   }
@@ -78,6 +68,3 @@
     color: darken($melongreen, 5%);
   }
 }
-@-webkit-keyframes background-cycle { @include background-cycle; }
-   @-moz-keyframes background-cycle { @include background-cycle; }
-        @keyframes background-cycle { @include background-cycle; }

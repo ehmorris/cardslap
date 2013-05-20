@@ -6,11 +6,10 @@
     float: left;
     height: $card-size;
     margin: 0 0 25px 0;
-    -moz-perspective: 1000px;
     overflow: hidden;
+    @include perspective(1000px);
     position: relative;
     @include transition;
-    -webkit-perspective: 1000px;
     width: $card-size;
     z-index: 1;
 
